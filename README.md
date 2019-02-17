@@ -71,14 +71,6 @@
 |------|----|------|
 |name|text|null: false|
 |category_id|references|foreign_key: true|
-|size_id|references|foreign_key: true|
-|brand_id|references|foreign_key: true|
-|image_id|references|foreign_key: true|
-|condition|string|null: false|
-|shipping_fee|string|null: false|
-|shipping_method|string|null: false|
-|shipping_from|string|null: false|
-|shipping_term|string|null: false|
 |price|integer|null: false|
 |description|text|null: true|
 
@@ -93,6 +85,16 @@
 - has_many :comments, dependent: :destroy
 - ham_many :sellers, class_name: "User", foreign_key: seller_id, through: :deals
 - ham_many :buyers, class_name: "User", foreign_key: buyer_id, through: :deals
+
+## enum
+size
+brand
+image
+condition
+shipping_fee
+shipping_method
+shipping_from
+shipping_term
 
 
 ## comments table
