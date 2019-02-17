@@ -186,7 +186,7 @@ shipping_term
 |Column|Type|Option|
 |------|----|------|
 |name|string|null: false|
-|ancestry|string|index: true|
+|ancestry|string|add_index|
 
 ### Association
 
