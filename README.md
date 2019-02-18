@@ -87,14 +87,14 @@
 - ham_many :buyers, class_name: "User", foreign_key: buyer_id, through: :deals
 
 ## enum
-size
-brand
-image
-condition
-shipping_fee
-shipping_method
-shipping_from
-shipping_term
+- size
+- brand
+- image
+- condition
+- shipping_fee
+- shipping_method
+- shipping_from
+- shipping_term
 
 
 ## comments table
