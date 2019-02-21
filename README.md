@@ -6,7 +6,7 @@
 
 |Column|Type|Option|
 |------|----|------|
-|name|string|null: fales|
+|nickname|string|null: fales|
 |email|string|unique: true, null: false|
 |password|string|null: false|
 |phone|string|null: false, unique: true|
