@@ -205,20 +205,16 @@ i {
     display: block;
     color: #333;
   }
-}
-
-.single-footer-logo {
-  width: 80px;
-  height: 65px;
-  margin: 40px auto 0;
-}
-
-.single-footer {
   p {
     margin: 8px 0 0;
   }
   small {
     font-size: 12px;
+  }
+  &-logo {
+    width: 80px;
+    height: 65px;
+    margin: 40px auto 0;
   }
 }
 
