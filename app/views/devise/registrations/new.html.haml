@@ -1,17 +1,17 @@
 .single-container
   = render partial: "devise/shared/new-header"
   %main.single-main
-    %section.l-single-container
-      %h2.l-single-head 新規会員登録
-      .l-single-inner
-        .l-single-inner__l-single-content
-          %a.btn-default.btn-mail{href: "https://www.mercari.com/jp/signup/registration/"}
+    %section.signup-panel
+      %h2.signup-panel__head 新規会員登録
+      .signup-panel__inner
+        .signup-panel__inner__single-content
+          %a.signup-panel__btn-default.signup-panel__btn-mail{href: "https://www.mercari.com/jp/signup/registration/"}
             %i.icon-mail
             メールアドレスで登録
-          %button#facebook-login.btn-default.btn-sns.btn-sns__facebook
+          %button#facebook-login.signup-panel__btn-default.signup-panel__btn-sns.signup-panel__btn-sns__facebook
             %i.icon-facebook
             Facebookで登録
-          %button#google-login.btn-default.btn-sns.btn-sns__google
+          %button#google-login.signup-panel__btn-default.signup-panel__btn-sns.signup-panel__btn-sns__google
             %i.icon-google-plus
             Googleで登録
     %form#login_form_facebook{action: "/jp/signup/facebook/", method: "POST", novalidate: "novalidate"}

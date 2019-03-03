@@ -1,0 +1,83 @@
+* {
+  background-repeat: no-repeat;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  position: relative;
+  min-height: 100%;
+  font-family: "Source Sans Pro", Helvetica, Arial, 游ゴシック体, YuGothic, メイリオ, Meiryo, sans-serif;
+  font-size: 14px;
+  color: rgb(51, 51, 51);
+  line-height: 1;
+  background: rgb(245, 245, 245);
+}
+
+a {
+  color: #0099e8;
+  text-decoration: none;
+  &:hover {
+    text-decoration: underline;
+    opacity: .7;
+  }
+}
+
+img {
+  vertical-align: middle;
+}
+
+h2 {
+  font-size: 22px;
+  line-height: 1.4;
+}
+
+h3 {
+  font-size: 22px;
+}
+
+button {
+  border: 0;
+  outline: 0;
+  cursor: pointer;
+}
+
+input {
+  border: 0;
+  outline: 0;
+  font-family: inherit;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+}
+
+button, [type="button"], [type="date"], [type="datetime"], [type="datetime-local"], [type="email"], [type="month"], [type="number"], [type="password"], [type="reset"], [type="search"], [type="submit"], [type="tel"], [type="text"], [type="time"], [type="url"], [type="week"], select, textarea {
+  min-height: 1.5em;
+}
+
+main {
+  display: block;
+}
+
+ul, ol {
+  list-style: none;
+}
+
+nav {
+  ol, ul {
+    list-style: none;
+  }
+}
+i {
+  &[class^='icon-'], &[class*='icon-'] {
+    display: inline-block;
+    font-family: 'icon-font';
+    speak: none;
+    font-style: normal;
+    font-weight: 400;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+}
