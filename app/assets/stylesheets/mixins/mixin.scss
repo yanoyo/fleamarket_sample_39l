@@ -1,0 +1,52 @@
+@mixin btn-default() {
+	&__btn-default {
+      display: block;
+	  width: 100%;
+	  line-height: 48px;
+	  font-size: 14px;
+	  border: 1px solid transparent;
+	  -webkit-transition: all ease-out .3s;
+	  transition: all ease-out .3s;
+	  cursor: pointer;
+	  text-align: center;
+    }
+}
+@mixin btn-sns() {
+	&__btn-sns {
+	  position: relative;
+	  margin: 16px 0 0;
+	  color: #fff;
+	  &__facebook {
+	    background: #385185;
+	    &:first-child {
+	      margin: 0;
+	    }
+	  }
+	  &__google {
+	    background: #dc4e41;
+	  }
+	}
+}
+@mixin btn-red() {
+    &__btn-red {
+	  background: #ea352d;
+	  border: 1px solid #ea352d;
+	  color: #fff;
+	}
+}
+@mixin btn-mail() {
+	&__btn-mail {
+	  position: relative;
+	  background: #eee;
+	  color: #000;
+	  .icon-mail {
+	    position: absolute;
+	    top: 50%;
+	    left: 16px;
+	    -webkit-transform: translate(0, -50%);
+	    transform: translate(0, -50%);
+	    color: #ccc;
+	    font-size: 16px;
+	  }
+	}
+}
