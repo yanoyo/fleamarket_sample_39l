@@ -1,0 +1,26 @@
+.single-container
+  = render partial: "devise/shared/new-header"
+  %main.single-main
+    .login-panel
+      .login-panel__login-no-account
+        %p アカウントをお持ちでない方はこちら
+        %a{href: "https://www.mercari.com/jp/signup/"} 新規会員登録
+      .login-panel__login-form-inner
+        %button#facebook-login.login-panel__btn-default.login-panel__btn-sns.login-panel__btn-sns__facebook
+          %i.icon-facebook
+          Facebookでログイン
+        %button#google-login.login-panel__btn-default.login-panel__btn-sns.login-panel__btn-sns__google
+          %i.icon-google-plus
+          Googleでログイン
+      %form.login-panel__login-form{action: "https://www.mercari.com/jp/login/", method: "POST", novalidate: "novalidate"}
+        .login-panel__login-form-inner
+          .login-panel__login-form-inner__form-group
+            %input.login-input-text.login-panel__input-default{name: "email", placeholder:  "メールアドレス", type: "email", value: ""}/
+          .login-panel__form-group
+            %input.login-input-text.login-panel__input-default{name: "password", placeholder:  "パスワード", type: "password"}/
+          .login-panel__form-group
+            .g-recaptcha.login-captcha{"data-sitekey": ""}
+          %button.login-submit.login-panel__btn-default.login-panel__btn-red{type: "submit"} ログイン
+          %input{name: "__csrf_value", type: "hidden", value: ""}/
+          %a{href: "https://www.mercari.com/jp/password/reset/start/"} パスワードをお忘れの方
+  = render partial: "devise/shared/new-footer"
