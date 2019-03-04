@@ -1,5 +1,5 @@
 .single-container
-  = render partial: "devise/shared/new-header"
+  = render partial: "shared/new-header"
   %main.single-main
     .login-panel
       .login-panel__login-no-account
@@ -23,4 +23,4 @@
           %button.login-submit.login-panel__btn-default.login-panel__btn-red{type: "submit"} ログイン
           %input{name: "__csrf_value", type: "hidden", value: ""}/
           %a{href: "https://www.mercari.com/jp/password/reset/start/"} パスワードをお忘れの方
-  = render partial: "devise/shared/new-footer"
+  = render partial: "shared/new-footer"
