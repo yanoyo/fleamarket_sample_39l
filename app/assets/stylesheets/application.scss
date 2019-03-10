@@ -1,4 +1,4 @@
-@import "bases/reset";
-@import "bases/base";
-@import "mixins/mixin";
-@import "modules/user";
+@import "./mixins/*";
+@import "./bases/*";
+@import "./config/*";
+@import "./modules/*";

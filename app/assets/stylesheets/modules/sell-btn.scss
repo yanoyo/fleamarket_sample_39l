@@ -1,0 +1,24 @@
+a.sell-btn{
+  text-decoration: none;
+  margin: 0;
+  position: fixed;
+  right: 40px;
+  bottom: 40px;
+  width: 160px;
+  height: 160px;
+  background-color: $sellbtnred;
+  border-radius: 50%;
+  text-align: center;
+  cursor: pointer;
+  cursor: hand;
+  .sell-text{
+    color: $white;
+    margin: 32px 0 0 0;
+    font-size:20px;
+  }
+  .fa{
+    color: $white;
+    margin-top: 5px;
+    font-size: 60px;
+  }
+}
