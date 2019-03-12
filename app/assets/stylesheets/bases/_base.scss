@@ -67,6 +67,7 @@ nav {
     list-style: none;
   }
 }
+
 i {
   &[class^='icon-'], &[class*='icon-'] {
     display: inline-block;
@@ -80,4 +81,8 @@ i {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
+}
+
+label {
+  display: inline-block;
 }

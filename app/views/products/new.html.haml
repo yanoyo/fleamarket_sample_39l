@@ -1,0 +1,126 @@
+.single-container
+  = render partial: "shared/new-header"
+  %main.single-main
+    %section.sell-single-container
+      #sell-container
+        %div
+          .sell-container-inner
+            %h2.sell-single-container__head 商品の情報を入力
+            %form.sell-single-container__form
+              .sell-single-container__upload-box
+                %h3.sell-single-container__upload-head
+                  出品画像
+                  %span.sell-single-container__form-require 必須
+                %p 最大10枚までアップロードできます
+                .sell-single-container__dropbox-container.sell-single-container__clearfix
+                  .sell-single-container__upload-drop-box
+                    %pre.sell-single-container__visible-pc ドラッグアンドドロップまたはクリックしてファイルをアップロード
+              .sell-single-container__content.sell-single-container__clearfix
+                .sell-single-container__form-group
+                  %label
+                    商品名
+                    %span.sell-single-container__form-require 必須
+                  %div
+                    %input.sell-single-container__input-default{placeholder: "商品名（必須 40文字まで)", value: ""}/
+                .sell-single-container__form-group
+                  %label
+                    商品の説明
+                    %span.sell-single-container__form-require 必須
+                  %textarea.sell-single-container__textarea-default{placeholder: "商品の説明（必須 1,000文字以内）（色、素材、重さ、定価、注意点など）例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。", rows: "5"}
+              .sell-single-container__content.sell-single-container__clearfix
+                %h3.sell-single-container__sell-sub-head 商品の詳細
+                .sell-single-container__form-box
+                  .sell-single-container__form-group
+                    %label
+                      カテゴリー
+                      %span.sell-single-container__form-require 必須
+                    %div
+                      .sell-single-container__select-wrap
+                        %select.sell-single-container__select-default
+                          - @productCategories.each do |productCategory|
+                            %option{value: "#{productCategory.value}"}
+                              = productCategory.name
+                        %i.icon-arrow-bottom
+                  .sell-single-container__form-group
+                    %label
+                      商品の状態
+                      %span.sell-single-container__form-require 必須
+                    .sell-single-container__select-wrap
+                      %select.sell-single-container__select-default
+                        - @productConditions.each do |productCondition|
+                          %option{value: "#{productCondition.value}"}
+                            = productCondition.name
+                      %i.icon-arrow-bottom
+              .sell-single-container__content.sell-single-container__clearfix
+                %h3.sell-single-container__sell-sub-head 配送について
+                =link_to "?", "", { target: "_blank" }
+                .sell-single-container__form-box
+                  .sell-single-container__form-group
+                    %label
+                      配送料の負担
+                      %span.sell-single-container__form-require 必須
+                    .sell-single-container__select-wrap
+                      %select.sell-single-container__select-default
+                        - @payShippings.each do |payShipping|
+                          %option{value: "#{payShipping.value}"}
+                            = payShipping.name
+                      %i.icon-arrow-bottom
+                  .sell-single-container__form-group
+                    %label
+                      発送元の地域
+                      %span.sell-single-container__form-require 必須
+                    .sell-single-container__select-wrap
+                      %select.sell-single-container__select-default
+                        - @prefectures.each do |prefecture|
+                          %option{value: "#{prefecture.id}"}
+                            = prefecture.name
+                      %i.icon-arrow-bottom
+                  .sell-single-container__form-group
+                    %label
+                      発送までの日数
+                      %span.sell-single-container__form-require 必須
+                    .sell-single-container__select-wrap
+                      %select.sell-single-container__select-default
+                        - @shippingDates.each do |shippingDate|
+                          %option{value: "#{shippingDate.value}"}
+                            = shippingDate.name
+                      %i.icon-arrow-bottom
+              .sell-single-container__content.sell-single-container__clearfix
+                %h3.sell-single-container__sell-sub-head 販売価格(300〜9,999,999)
+                =link_to "?", "", { target: "_blank" }
+                .sell-single-container__form-box
+                  %ul.sell-single-container__price
+                    %li.sell-single-container__form-group
+                      .sell-single-container__clearfix
+                        %label.sell-single-container__l-left
+                          価格
+                          %span.sell-single-container__form-require 必須
+                        .sell-single-container__l-right.sell-single-container__price-input
+                          ¥
+                          %div
+                            %input.sell-single-container__price-input.sell-single-container__price-input__input-default{placeholder: "例）300", value: ""}/
+                    %li.sell-single-container__clearfix
+                      .sell-single-container__l-left
+                        販売手数料 (10%)
+                      .sell-single-container__l-right -
+                    %li.sell-single-container__clearfix
+                      .sell-single-container__l-left.sell-single-container__l-left__bold 販売利益
+                      .sell-single-container__l-right.sell-single-container__l-right__bold -
+              .sell-single-container__content.sell-single-container__btn-box
+                %div
+                  %p
+                    =link_to "禁止されている出品", "", { target: "_blank" }
+                    、
+                    =link_to "行為", "", { target: "_blank" }
+                    を必ずご確認ください。
+                  %p
+                    またブランド品でシリアルナンバー等がある場合はご記載ください。
+                    =link_to "偽ブランドの販売", "", { target: "_blank" }
+                  %p
+                    また、出品をもちまして
+                    =link_to "加盟店規約", "", { target: "_blank" }
+                %button.sell-single-container__btn-default.sell-single-container__btn-box__btn-red{type: "submit"}
+                  出品する
+                =link_to "もどる", "", { :class => "sell-single-container__btn-default sell-single-container__btn-box__btn-gray" }
+            .overlay
+  = render partial: "shared/new-footer"
