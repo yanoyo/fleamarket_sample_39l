@@ -25,21 +25,13 @@ img {
   padding: 40px 0;
   background-color: $lightgray;
   display: inline-block;
-  .pickup-head {
+  h2 {
+    font-size: 28px;
+    font-weight: 800;
+  }
+  &__head {
     width: 100%;
     text-align: center;
     margin: 0 auto;
-    h2 {
-      font-size: 175%;
-      font-style: bold;
-    }
   }
-}
-
-.icon::before {
-  font-family: "Font Awesome 5 Free";
-}
-
-.icon.fal.fa-heart {
-  color: $gray;
 }
