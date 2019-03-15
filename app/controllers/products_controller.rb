@@ -1,5 +1,7 @@
 class ProductsController < ApplicationController
-	def new
+  def index
+  end
+  def new
 		@productCategories = ProductCategory.all
 		@productConditions = ProductCondition.all
 		@payShippings = PayShipping.all
