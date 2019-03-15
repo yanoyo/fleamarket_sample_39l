@@ -65,3 +65,4 @@ gem 'devise'
 gem 'haml-rails'
 gem 'erb2haml'
 gem "font-awesome-rails"
+gem 'active_hash', '1.4.1'
