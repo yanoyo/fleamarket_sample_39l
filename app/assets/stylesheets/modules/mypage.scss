@@ -225,6 +225,7 @@
         margin: 40px 0 0 0;
     }
     &__setting-profile-icon {
+        @include input-default();
         padding: 72px 16px 24px;
         background: url(https://www.mercari.com/jp/assets/img/mypage/user-bg.jpg?82208132);
         background-repeat: no-repeat;
@@ -239,7 +240,6 @@
             border-radius: 50%;
             vertical-align: middle;
         }
-        @include input-default();
         &__input-default {
             width: 220px;
             margin: 0 0 0 8px;
