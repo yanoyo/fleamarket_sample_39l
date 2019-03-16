@@ -1,0 +1,27 @@
+.l-side {
+  float: left;
+  width: 280px;
+  margin: 0 40px 0 0;
+}
+.mypage-nav {
+  &__head {
+    margin: 40px 0 0;
+    font-size: 16px;
+    + .mypage-nav__list {
+      margin: 8px 0 0;
+    }
+  }
+  &__list li {
+    border-top: 1px solid #eee;
+    &:first-child {
+      border: 0;
+    }
+  }
+  &__list-item {
+      position: relative;
+      display: block;
+      padding: 16px;
+      background: #fff;
+      color: #333;
+  }
+}
