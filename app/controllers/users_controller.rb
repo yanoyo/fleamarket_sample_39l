@@ -4,4 +4,12 @@ class UsersController < ApplicationController
 
   def logout
   end
+
+  def show
+	end
+
+	def identification
+		@prefectures = Prefecture.all
+	end
+	
 end

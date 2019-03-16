@@ -1,0 +1,69 @@
+.global-footer {
+  width: 100%;
+  background: $almostblack;
+  padding: 60px 0;
+  text-align: center;
+  &__lists {
+    width: 90%;
+    margin: 0 auto;
+  }
+  &__list {
+    display: inline-block;
+    vertical-align: top;
+    width: 23%;
+  }
+  &__title {
+    color: $white;
+    font-size: 16px;
+    text-align: center;
+  }
+  &__link {
+    margin: 0;
+    padding-top: 0;
+    list-style: none;
+    font-size: 14px;
+    display: block;
+    padding-top: 8px;
+    vertical-align: middle;
+    &-general {
+      padding-top: 8px;
+      a {
+        text-decoration: none;
+        color: $white;
+      }
+      a:hover {
+        text-decoration: underline;
+        color: $gray;
+      }
+    }
+    &-country {
+      padding-top: 8px;
+      img {
+        line-height: 24px;
+        width: 22px;
+      }
+      a {
+        text-decoration: none;
+        color: $darkgray;
+      }
+      a.active {
+        text-decoration: none;
+        color: $white;
+      }
+      a:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+  &__logo {
+    display: block;
+    margin: 40px 0 0;
+    text-align: center;
+  }
+  &__copyright {
+    margin: 8px 0 0;
+    text-align: center;
+    font-size: 14px;
+    color: $white;
+  }
+}

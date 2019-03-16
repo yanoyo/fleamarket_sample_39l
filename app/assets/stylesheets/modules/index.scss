@@ -1,0 +1,37 @@
+main {
+  width: 100%;
+  background-color: $lightgray;
+}
+
+li {
+  list-style: none;
+}
+
+img {
+  width:auto;
+  max-width:100%;
+  max-height:100%;
+}
+
+.top-main-visual {
+  max-width: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+
+.pickup-container {
+  height: 100%;
+  width: 100%;
+  padding: 40px 0;
+  background-color: $lightgray;
+  display: inline-block;
+  h2 {
+    font-size: 28px;
+    font-weight: 800;
+  }
+  &__head {
+    width: 100%;
+    text-align: center;
+    margin: 0 auto;
+  }
+}

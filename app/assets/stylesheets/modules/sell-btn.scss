@@ -1,0 +1,27 @@
+.sell-btn {
+  margin: 0;
+  position: fixed;
+  right: 40px;
+  bottom: 40px;
+  width: 160px;
+  height: 160px;
+  background-color: $sellbtnred;
+  border-radius: 50%;
+  text-align: center;
+  a {
+    text-decoration: none;
+    cursor: pointer;
+    cursor: hand;
+  }
+  &__text{
+    color: $white;
+    margin: 32px 0 0 0;
+    font-size:20px;
+  }
+  &__icon {
+    font-family: "Font Awesome 5 Free";
+    color: $white;
+    margin-top: 5px;
+    font-size: 60px;
+  }
+}

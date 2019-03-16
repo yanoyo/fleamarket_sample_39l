@@ -1,0 +1,29 @@
+%header.pc-header
+  .pc-header__upper
+    = link_to image_tag('logo.svg', alt:"mercari"), root_path
+    .pc-header__form
+      %form
+        %input.pc-header__form-keyword{ type:"search", placeholder: "キーワードから探す"}
+        %button.pc-header__form-submit{ type:"submit" }
+          = fa_icon 'search', class: ''
+    .pc-header__bottom.clearfix
+      %nav.pc-header__bottom-left
+        %ul
+          %li
+            = link_to "カテゴリーから探す", 'hoge'
+        %ul
+          %li
+            = link_to "ブランドから探す", 'hoge'
+      %nav.pc-header__bottom-right
+        %ul
+          %li
+            = image_tag 'member_photo_noimage_thumb.png',alt:'noimage_thumb',class: 'nav_mypage_icon'
+            = link_to 'マイページ', '/mypage/', class: 'nav-mypage'
+          %li
+            = link_to '/mypage/notification/', class: 'nav-notification' do
+              = fa_icon 'bell', class: 'nav-notification-icon'
+              おしらせ
+          %li
+            = link_to '/mypage/todo/', class: 'nav-todo' do
+              = fa_icon 'check', class: 'nav-todo-icon'
+              やることリスト

@@ -1,8 +1,10 @@
 Rails.application.routes.draw do
   devise_for :users
-  root 'application#hello'
+  root 'products#index'
+  resources :products, only: [:index]
   get 'signup', to: 'users#signup'
-  #   get 'registration', to: 'registrations#new'
-  # end
   get 'logout', to: 'users#logout'
+  get  'products/new'  =>  'products#new'
+  get  'users/show'    =>  'users#show'
+  get  'users/show/identification' => 'users#identification'
 end
