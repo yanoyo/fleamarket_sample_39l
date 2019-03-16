@@ -33,7 +33,9 @@
             %span.mypage-content__form-arbitrary 任意
             .mypage-content__select-wrap
               %select.mypage-content__select-default{name: "prefecture"}
-                %option --
+                - @prefectures.each do |prefecture|
+                  %option{value: "#{prefecture.id}"}
+                    = prefecture.name
           .mypage-content__form-group
             %label{for: "city"} 市区町村
             %span.mypage-content__form-arbitrary 任意
