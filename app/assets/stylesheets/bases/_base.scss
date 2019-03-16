@@ -86,3 +86,16 @@ i {
 label {
   display: inline-block;
 }
+.wrapper {
+    &__clearfix {
+        @include clearfix();
+    }
+}
+.l-container {
+    padding: 0 0 40px;
+    margin: 40px auto 0;
+    width: 1020px;
+    &__clearfix {
+        @include clearfix();
+    }
+}
