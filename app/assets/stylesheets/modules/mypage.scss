@@ -1,10 +1,11 @@
 .mypage-content {
-    width: 700px;
-    float: right;
     @include select-default();
     @include input-default();
     @include btn-default();
     @include btn-red();
+    @include textarea-default();
+    width: 700px;
+    float: right;
     &__user-icon {
         position: relative;
         height: 200px;
@@ -222,5 +223,30 @@
     }
     &__identification button[type="submit"] {
         margin: 40px 0 0 0;
+    }
+    &__setting-profile-icon {
+        padding: 72px 16px 24px;
+        background: url(https://www.mercari.com/jp/assets/img/mypage/user-bg.jpg?82208132);
+        background-repeat: no-repeat;
+        background-size: cover;
+        text-align: center;
+        font-size: 0;
+        figure {
+            display: inline-block;
+            overflow: hidden;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            vertical-align: middle;
+        }
+        @include input-default();
+        &__input-default {
+            width: 220px;
+            margin: 0 0 0 8px;
+            vertical-align: middle;
+        }
+    }
+    &__setting-profile-content {
+        padding: 40px 16px;
     }
 }

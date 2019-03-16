@@ -5,4 +5,5 @@ Rails.application.routes.draw do
   get  'products/new'  =>  'products#new'
   get  'users/show'    =>  'users#show'
   get  'users/show/identification' => 'users#identification'
+  get  'users/show/profile' => 'users#profile'
 end

@@ -6,4 +6,7 @@ class UsersController < ApplicationController
 		@prefectures = Prefecture.all
 	end
 	
+	def profile
+	end
+	
 end
