@@ -15,6 +15,7 @@
             %span.form-require
               必須
             = f.text_field :nickname, autoforcus: true, placeholder: "例) メルカリ太郎", class: "input-default"
+            %input{ type: "text"}
           .form-group
             = f.label :email do
               メールアドレス
@@ -26,9 +27,6 @@
               パスワード
             %span.form-require
               必須
-            - if @minimum_password_length
-              / %em
-              /   (#{@minimum_password_length} characters minimum)
             = f.password_field :password, autocomplete: "new-password", placeholder: "6文字以上", class: "input-default"
           .form-group
             = f.label :password do
