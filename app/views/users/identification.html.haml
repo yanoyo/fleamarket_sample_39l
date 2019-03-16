@@ -1,0 +1,59 @@
+.wrapper.wrapper__clearfix
+  = render partial: "shared/header"
+  = render partial: "shared/bread-crumbs"
+  %main.l-container.l-container__clearfix
+    .mypage-content
+      %section.mypage-content__chapter-container.mypage-content__identification
+        %h2.mypage-content__chapter-head 本人情報の登録
+        %form.mypage-content__inner{action: "", method: "POST"}
+          %div
+            %p
+              お客さまの本人情報をご登録ください。
+              %br>/
+              登録されたお名前・生年月日を変更する場合、本人確認書類の提出が必要になります。
+            %p.mypage-content__text-right
+              = link_to "", target: "_blank" do
+                本人確認書類のアップロードについて
+                %i.icon-arrow-right
+          .mypage-content__form-group
+            %label お名前
+            %p 山田 太郎
+          .mypage-content__form-group
+            %label お名前カナ
+            %p ヤマダタロウ
+          .mypage-content__form-group
+            %label{for: "birthday"} 生年月日
+            %p 2000/01/01
+          .mypage-content__form-group
+            %label{for: "zip_code"} 郵便番号
+            %span.mypage-content__form-arbitrary 任意
+            %input.mypage-content__input-default{name: "zip_code", placeholder: "例）1234567", type: "text", value: ""}/
+          .mypage-content__form-group
+            %label{for: "prefecture"} 都道府県
+            %span.mypage-content__form-arbitrary 任意
+            .mypage-content__select-wrap
+              %select.mypage-content__select-default{name: "prefecture"}
+                - @prefectures.each do |prefecture|
+                  %option{value: "#{prefecture.id}"}
+                    = prefecture.name
+          .mypage-content__form-group
+            %label{for: "city"} 市区町村
+            %span.mypage-content__form-arbitrary 任意
+            %input.mypage-content__input-default{name: "city", placeholder: "例) 横浜市緑区", type: "text", value: ""}/
+          .mypage-content__form-group
+            %label{for: "address1_label"} 番地
+            %span.mypage-content__form-arbitrary 任意
+            %input.mypage-content__input-default{name: "address1", placeholder: "例) 青山1−1−1", type: "text", value: ""}/
+          .mypage-content__form-group
+            %label{for: "address2_label"} 建物名
+            %span.mypage-content__form-arbitrary 任意
+            %input.mypage-content__input-default{name: "address2", placeholder: "例) 柳ビル103", type: "text", value: ""}/
+          %button.mypage-content__btn-default.mypage-content__btn-red{type: "submit"} 登録する
+          .mypage-content__form-group.mypage-content__text-right
+            %p
+              = link_to "", target: "_blank" do
+                本人情報の登録について
+          %input{name: "__csrf_value", type: "hidden", value: ""}/
+    = render partial: "shared/sidebar"
+  = render partial: "shared/footer"
+  = render partial: "shared/sell_btn"

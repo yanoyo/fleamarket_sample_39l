@@ -4,4 +4,5 @@ Rails.application.routes.draw do
   resources :products, only: [:index]
   get  'products/new'  =>  'products#new'
   get  'users/show'    =>  'users#show'
+  get  'users/show/identification' => 'users#identification'
 end

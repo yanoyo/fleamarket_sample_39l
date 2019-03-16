@@ -86,11 +86,19 @@ i {
 label {
   display: inline-block;
 }
+
+select {
+    outline: 0;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+}
+
 .wrapper {
     &__clearfix {
         @include clearfix();
     }
 }
+
 .l-container {
     padding: 0 0 40px;
     margin: 40px auto 0;
