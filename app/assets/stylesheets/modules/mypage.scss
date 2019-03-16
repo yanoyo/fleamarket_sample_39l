@@ -1,6 +1,10 @@
 .mypage-content {
     width: 700px;
     float: right;
+    @include select-default();
+    @include input-default();
+    @include btn-default();
+    @include btn-red();
     &__user-icon {
         position: relative;
         height: 200px;
@@ -209,17 +213,13 @@
         background: #fff;
         margin: 8px 0 0;
     }
-    @include select-default();
     &__input-default {
         width: 100%;
         margin: 8px 0 0;
     }
-    @include input-default();
     &__btn-red {
         margin: 40px 0 0;
     }
-    @include btn-default();
-    @include btn-red();
     &__identification button[type="submit"] {
         margin: 40px 0 0 0;
     }
