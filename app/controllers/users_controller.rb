@@ -11,5 +11,4 @@ class UsersController < ApplicationController
 	def identification
 		@prefectures = Prefecture.all
 	end
-	
 end

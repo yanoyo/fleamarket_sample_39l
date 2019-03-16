@@ -8,3 +8,4 @@ Rails.application.routes.draw do
   get  'users/show'    =>  'users#show'
   get  'users/show/identification' => 'users#identification'
 end
+
