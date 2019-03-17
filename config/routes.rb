@@ -7,5 +7,8 @@ Rails.application.routes.draw do
   get  'products/new'  =>  'products#new'
   get  'users/show'    =>  'users#show'
   get  'users/show/identification' => 'users#identification'
+  resources :products, only: [:index, :new]
+  resources :users, only: [:edit]
+  resources :profiles, only: [:edit]
 end
 
