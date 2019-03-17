@@ -1,14 +1,21 @@
 Rails.application.routes.draw do
   devise_for :users
   root 'products#index'
-  resources :products, only: [:index]
+
   get 'signup', to: 'users#signup'
-  get 'logout', to: 'users#logout'
-  get  'products/new'  =>  'products#new'
   get  'users/show'    =>  'users#show'
   get  'users/show/identification' => 'users#identification'
-  resources :products, only: [:index, :new]
-  resources :users, only: [:edit]
+ 
+  resources :products, only: [:index, :new] do
+  	collection do
+  		get 'buy_confirm'
+  	end
+  end
+  resources :users, only: [:edit] do
+  	collection do
+  		get 'logout'
+  	end
+  end
   resources :profiles, only: [:edit]
 end
 

@@ -1,9 +1,10 @@
-.sell-single-container {
+.product-single-container {
     @include input-default();
     @include textarea-default();
     @include l-left();
     @include l-right();
     @include btn-default();
+    @include btn-red();
     width: 700px;
     margin: 0 auto;
     background: #fff;
@@ -166,5 +167,94 @@
     }
     &__clearfix {
         @include clearfix();
+    }
+    &__buy-content {
+        margin: 40px 0 0;
+        padding: 24px 12.5% 0;
+        border-top: 1px solid #f5f5f5;
+        &:first-of-type {
+            margin: 0;
+        }
+        &:last-of-type {
+            padding: 40px 12.5%;
+        }
+    }
+    &__buy-item {
+        text-align: center;
+        img {
+            width: 148px;
+        }
+    }
+    &__buy-content-inner {
+        max-width: 320px;
+        margin: 0 auto;
+    }
+    &__buy-item-name {
+        margin: 8px 0 0;
+        font-size: 16px;
+        line-height: 1.5;
+    }
+    &__buy-price-ja {
+        margin: 16px 0 0;
+        font-size: 28px;
+    }
+    &__buy-form  {
+        p {
+            margin: 8px 0 0;
+            line-height: 1.5;
+        }
+    }
+    &__item-shipping-fee {
+        display: inline-block;
+        margin: 0 0 0 8px;
+        font-size: 14px;
+        font-weight: 400;
+    }
+    &__buy-accordion {
+        margin: 16px 0 0;
+        background: #ccc;
+    }
+    &__accordion-toggle {
+        position: relative;
+        border: 1px solid #ccc;
+        padding: 16px;
+        cursor: default;
+    }
+    &__buy-price-table {
+        display: table;
+        border-collapse: collapse;
+        width: 100%;
+    }
+    &__buy-price-row {
+        display: table-row;
+        border-top: 1px solid #ccc;
+        font-size: 28px;
+    }
+    &__buy-price-cell {
+        display: table-cell;
+        padding: 16px 0;
+        text-align: right;
+        &:first-child {
+            text-align: left;
+        }
+    }
+    &__buy-user-info {
+        -webkit-transition: all ease-out .3s;
+        transition: all ease-out .3s;
+        address {
+            display: block;
+        }
+    }
+    &__buy-user-info-text {
+        margin: 8px 0 0;
+        font-size: 14px;
+        line-height: 1.4;
+    }
+    &__buy-user-info-fix {
+        display: block;
+        text-align: right;
+        span {
+            vertical-align: middle;
+        }
     }
 }
