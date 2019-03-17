@@ -1,33 +1,41 @@
-.single-container
+.user-new-registration
   = render partial: "shared/new-header"
   %main.single-main
-    %section.signup-panel
-      %h2.signup-panel__head 新規会員登録
-      .signup-panel__inner
-        .signup-panel__inner__single-content
-          %a.signup-panel__btn-default.signup-panel__btn-mail{href: "https://www.mercari.com/jp/signup/registration/"}
-            %i.icon-mail
-            メールアドレスで登録
-          %button#facebook-login.signup-panel__btn-default.signup-panel__btn-sns.signup-panel__btn-sns__facebook
-            %i.icon-facebook
-            Facebookで登録
-          %button#google-login.signup-panel__btn-default.signup-panel__btn-sns.signup-panel__btn-sns__google
-            %i.icon-google-plus
-            Googleで登録
-    %form#login_form_facebook{action: "/jp/signup/facebook/", method: "POST", novalidate: "novalidate"}
-      %input{name: "__csrf_value", type: "hidden", value: ""}/
-      %input{name: "nickname", type: "hidden", value: ""}/
-      %input{name: "email", type: "hidden", value: ""}/
-      %input{name: "facebook_user_id", type: "hidden", value: ""}/
-      %input{name: "facebook_access_token", type: "hidden", value: ""}/
-      %input{name: "login_type", type: "hidden", value: "facebook"}/
-    %form#login_form_google{action: "/jp/signup/google/", method: "POST", novalidate: "novalidate"}
-      %input{name: "__csrf_value", type: "hidden", value: ""}/
-      %input{name: "nickname", type: "hidden", value: ""}/
-      %input{name: "email", type: "hidden", value: ""}/
-      %input{name: "google_user_id", type: "hidden", value: ""}/
-      %input{name: "google_access_token", type: "hidden", value: ""}/
-      %input{name: "login_type", type: "hidden", value: "google"}/
-    %input#google_client_id{type: "hidden", value: ""}/
-    %input#facebook_app_id{type: "hidden", value: ""}/
+    %section.l-single-container
+      %h2.l-single-head
+        会員情報入力
+
+      .l-single-inner
+      = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
+        = devise_error_messages!
+        .l-single-content
+          .form-group
+            = f.label :nickname do
+              ニックネーム
+            %span.form-require
+              必須
+            = f.text_field :nickname, autoforcus: true, placeholder: "例) メルカリ太郎", class: "input-default"
+          .form-group
+            = f.label :email do
+              メールアドレス
+            %span.form-require
+              必須
+            = f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "PC・携帯どちらでも可", class: "input-default"
+          .form-group
+            = f.label :password do
+              パスワード
+            %span.form-require
+              必須
+            = f.password_field :password, autocomplete: "new-password", placeholder: "6文字以上", class: "input-default"
+          .form-group
+            = f.label :password do
+              パスワード(確認)
+            %span.form-require
+              必須
+            = f.password_field :password_confirmation, autocomplete: "new-password", placeholder: "6文字以上", class: "input-default"
+          .form-group
+            = f.submit "次へ進む", class: "form-group__btn-default form-group__btn-red "
+
   = render partial: "shared/new-footer"
+
+

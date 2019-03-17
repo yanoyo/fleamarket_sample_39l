@@ -1,5 +1,18 @@
 class UsersController < ApplicationController
-	def edit
+  def signup
+  end
+
+  def logout
+  end
+
+  def show
+	end
+
+	def identification
+		@prefectures = Prefecture.all
+	end
+
+  def edit
 	end
 
 	def logout

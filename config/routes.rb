@@ -1,6 +1,11 @@
 Rails.application.routes.draw do
   devise_for :users
   root 'products#index'
+
+  get 'signup', to: 'users#signup'
+  get  'users/show'    =>  'users#show'
+  get  'users/show/identification' => 'users#identification'
+ 
   resources :products, only: [:index, :new] do
   	collection do
   		get 'buy_confirm'
@@ -13,3 +18,4 @@ Rails.application.routes.draw do
   end
   resources :profiles, only: [:edit]
 end
+
