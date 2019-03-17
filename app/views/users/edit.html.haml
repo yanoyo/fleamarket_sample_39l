@@ -1,0 +1,20 @@
+.wrapper.wrapper__clearfix
+  = render partial: "shared/header"
+  = render partial: "shared/bread-crumbs"
+  %main.l-container.l-container__clearfix
+    .mypage-content
+      %section.mypage-content__chapter-container
+        %h2.mypage-content__chapter-head プロフィール
+        %form{action: "", method: "POST"}
+          %input{name:"csrf_value", type: "hidden", value: ""}/
+          .mypage-content__setting-profile-icon
+            %figure
+              = image_tag "https://static.mercdn.net/images/member_photo_noimage_thumb.png", size: "60x60"
+            %input.mypage-content__setting-profile-icon__input-default{name: "nickname", placeholder: "例)AYA☆セール中", type: "text", value: ""}/
+          .mypage-content__setting-profile-content
+            %textarea.mypage-content__textarea-default{name: "introduction", placeholder: "例）こんにちは☆ ご覧いただきありがとうございます！かわいいものやきれいめオフィスカジュアル中心に出品しています。服のサイズは主に9号です。気持ちよくお取引できるよう心がけていますので、商品や発送方法などご質問がありましたらお気軽にどうぞ♪"}
+            %input{name: "after_save_callback", type: "hidden", value: ""}/
+            %button.mypage-content__btn-default.mypage-content__btn-red{type: "submit"} 変更する
+    = render partial: "shared/sidebar"
+  = render partial: "shared/footer"
+  = render partial: "shared/sell_btn"
