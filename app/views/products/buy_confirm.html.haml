@@ -1,0 +1,52 @@
+.single-container
+  = render partial: "shared/new-header"
+  %main.single-main
+  %section.product-single-container
+    %h2.product-single-container__head 購入を確定しますか？
+    %section.product-single-container__buy-content.product-single-container__buy-item
+      .product-single-container__buy-content-inner
+        %h3
+          =image_tag "https://static.mercdn.net/thumb/photos/m16477614281_1.jpg?1552808604", alt: "シャツ"
+        %p.product-single-container__buy-item-name men'sチェックシャツ
+        %form.buy-form{action: "", method: "POST"}
+          %p.product-single-container__buy-price-ja
+            ¥ 600
+            %span.product-single-container__item-shipping-fee.f14 送料込み
+          %ul.product-single-container__buy-accordion
+            %li.product-single-container__accordion-parent
+              .product-single-container__accordion-toggle
+                ポイントはありません
+          %ul.product-single-container__buy-price-table
+            %li.product-single-container__buy-price-row
+              .product-single-container__buy-price-cell 支払い金額
+              .product-single-container__buy-price-cell
+                %span ¥ 600
+          %button.product-single-container__btn-default.product-single-container__btn-red{type: "submit"} 購入する
+    %section.product-single-container__buy-content.product-single-container__buy-user-info
+      .product-single-container__buy-content-inner
+        %h3 配送先
+        %address.product-single-container__buy-user-info-text
+          〒000-0000
+          %br/
+          東京都 品川区
+          ああ1-1-1
+          あああああああ
+          %br/
+          山田 太郎
+        %p.product-single-container__buy-user-info-text
+        = link_to "", class: "product-single-container__buy-user-info-fix" do
+          %span 変更する
+          %i.icon-arrow-right
+    %section.product-single-container__buy-content.product-single-container__buy-user-info
+      .product-single-container__buy-content-inner
+        %h3 支払い方法
+        %p.product-single-container__buy-user-info-text
+          ************0000
+          %br/
+          11 / 11
+          %figure
+            = image_tag "https://www-mercari-jp.akamaized.net/assets/img/card/master-card.svg?3703848211", size: "34x20", alt: "master-card"
+        = link_to "", class: "product-single-container__buy-user-info-fix" do
+          %span 変更する
+          %i.icon-arrow-right
+  = render partial: "shared/new-footer"
