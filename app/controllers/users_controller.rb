@@ -1,12 +1,4 @@
 class UsersController < ApplicationController
-	def show
+	def edit
 	end
-
-	def identification
-		@prefectures = Prefecture.all
-	end
-	
-	def profile
-	end
-	
 end
