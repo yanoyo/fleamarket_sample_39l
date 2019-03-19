@@ -43,8 +43,6 @@
           width: 320px;
           margin: 0 auto;
           .form-group {
-            @include btn-default();
-            @include btn-red();
             display: block;
             &:first-child {
               margin: 0;
@@ -76,6 +74,9 @@
               line-height: 1.5;
               font-size: 16px;
             }
+
+            @include btn-default();
+            @include btn-red();
 
             input:focus {
               border: 1px solid $lightblue;
