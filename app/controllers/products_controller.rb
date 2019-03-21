@@ -10,6 +10,9 @@ class ProductsController < ApplicationController
 		@shippingDates = ShippingDate.all
 	end
 
+	def product_list
+	end
+	
 	def buy_confirm
 	end
 
