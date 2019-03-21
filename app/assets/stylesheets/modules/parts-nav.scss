@@ -1,0 +1,10 @@
+.parts-nav {
+	&__clearfix {
+		@include clearfix();
+	}
+    margin: 0;
+    li {
+	    float: left;
+	    margin: 16px 16px 0 0;
+	}
+}

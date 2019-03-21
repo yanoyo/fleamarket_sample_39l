@@ -8,6 +8,7 @@ Rails.application.routes.draw do
  
   resources :products, only: [:index, :new] do
   	collection do
+      get 'product_list'
   		get 'buy_confirm'
   	end
   end
