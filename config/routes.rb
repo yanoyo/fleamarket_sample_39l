@@ -15,6 +15,7 @@ Rails.application.routes.draw do
   resources :users, only: [:edit] do
   	collection do
   		get 'logout'
+      get 'card'
   	end
   end
   resources :profiles, only: [:edit]
