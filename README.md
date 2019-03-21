@@ -13,7 +13,7 @@
 ### Association
 
 - has_one  :profile
-- has_one :sns_credential
+- has_many :sns_credentials
 - has_many :products, through: :deals
 - has_many :favorites, dependent: :destroy
 - has_many :messages, dependent: :destroy
