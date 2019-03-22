@@ -6,15 +6,19 @@ class UsersController < ApplicationController
   end
 
   def show
-	end
+  end
 
-	def identification
-		@prefectures = Prefecture.all
-	end
+  def identification
+  	@prefectures = Prefecture.all
+  end
 
   def edit
-	end
+  end
 
-	def logout
-	end
+  def logout
+  end
+
+  def card
+  end
+
 end

@@ -12,11 +12,15 @@ Rails.application.routes.draw do
   		get 'buy_confirm'
   	end
   end
+
   resources :users, only: [:edit] do
-  	collection do
-  		get 'logout'
+    collection do
+      get 'logout'
+      get 'card'
   	end
   end
+
   resources :profiles, only: [:edit]
+
 end
 

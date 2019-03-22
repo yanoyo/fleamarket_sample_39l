@@ -1,0 +1,27 @@
+.wrapper.wrapper__clearfix
+  = render partial: "shared/header"
+  = render partial: "shared/bread-crumbs"
+  %main.l-container.l-container__clearfix
+    .mypage-content
+      %section.mypage-content__chapter-container
+        %h2.mypage-content__chapter-head 支払い方法
+        .mypage-content__inner
+          %section
+            .mypage-content__single-content
+              %h3.mypage-content__chapter-sub-head クレジットカード一覧
+            %ul.mypage-content__settings-payment-list
+              %li
+                %form.mypage-content__single-content{action: "", method: "POST"}
+                  %figure
+                    = image_tag "https://www-mercari-jp.akamaized.net/assets/img/card/master-card.svg?2845599746", size: "34x20", alt: "master-card"
+                  .mypage-content__settings-payment-num ************0000
+                  .mypage-content__settings-payment-num 01 / 22
+                  %button.mypage-content__settings-payment-remove{type: "submit"}
+                    削除する
+          .mypage-content__settings-not-regist
+            = link_to "", target: "_blank" do
+              %span 支払い方法について
+              %i.icon-arrow-right
+    = render partial: "shared/sidebar"
+  = render partial: "shared/footer"
+  = render partial: "shared/sell_btn"
