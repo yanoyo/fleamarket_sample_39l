@@ -14,12 +14,12 @@ Rails.application.routes.draw do
   end
 
   resources :users, only: [:edit] do
-  	collection do
+    collection do
       get 'logout'
       get 'card'
   	end
   end
-  
+
   resources :profiles, only: [:edit]
 
 end
