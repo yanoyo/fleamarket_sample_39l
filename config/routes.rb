@@ -3,17 +3,15 @@ Rails.application.routes.draw do
   root 'products#index'
 
   get 'signup', to: 'users#signup'
-  get  'users/show'    =>  'users#show'
-  get  'users/show/identification' => 'users#identification'
  
-  resources :products, only: [:index, :new] do
+  resources :products, only: [:new] do
   	collection do
       get 'product_list'
   		get 'buy_confirm'
   	end
   end
 
-  resources :users, only: [:edit] do
+  resources :users, only: [:show, :edit] do
     collection do
       get 'logout'
       get 'card'
