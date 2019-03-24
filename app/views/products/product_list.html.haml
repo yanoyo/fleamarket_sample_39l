@@ -1,0 +1,84 @@
+.wrapper
+  = render 'shared/header'
+  = render 'shared/bread-crumbs'
+  %main.l-container.l-container__clearfix
+    .product-list-container
+      = render 'shared/parts-nav'
+      %section.product-list-container__clearfix
+        %h1.product-list-container__items-box-head
+          本の商品一覧
+        .product-list-container__items
+          %li.product-list-container__item-box
+            = link_to 'hoge' do
+              .product-list-container__item-photo
+                = image_tag('dammy_prd_1')
+              .product-list-container__item-name
+                ダミー商品1
+              .product-list-container__item-info
+                .product-list-container__item-info-price
+                  ¥ 999,999
+                .product-list-container__item-info-likes
+                  %i.icon.fal.fa-heart
+                  55
+              .product-list-container__item-tax
+                （税込）
+          %li.product-list-container__item-box
+            = link_to 'hoge' do
+              .product-list-container__item-photo
+                = image_tag('dammy_prd_1')
+              .product-list-container__item-name
+                ダミー商品2
+              .product-list-container__item-info
+                .product-list-container__item-info-price
+                  ¥ 9
+                .product-list-container__item-info-likes
+                  %i.icon.fal.fa-heart
+                  9
+              .product-list-container__item-tax
+                （税込）
+          %li.product-list-container__item-box
+            = link_to 'hoge' do
+              .product-list-container__item-photo
+                = image_tag('dammy_prd_1')
+              .product-list-container__item-name
+                ダミー商品3
+              .product-list-container__item-info
+                .product-list-container__item-info-price
+                  ¥ 9,999
+                .product-list-container__item-info-likes
+                  %i.icon.fal.fa-heart
+                  9,999
+              .product-list-container__item-tax
+                （税込）
+          %li.product-list-container__item-box
+            = link_to 'hoge' do
+              .product-list-container__item-photo
+                = image_tag('dammy_prd_1')
+              .product-list-container__item-name
+                ダミー商品4
+              .product-list-container__item-info
+                .product-list-container__item-info-price
+                  ¥ 999
+                .product-list-container__item-info-likes
+                  %i.icon.fal.fa-heart
+                  999
+              .product-list-container__item-tax
+                （税込）
+          %li.product-list-container__item-box
+            = link_to 'hoge' do
+              .product-list-container__item-photo
+                = image_tag('dammy_prd_1')
+              .product-list-container__item-name
+                ダミー商品5
+              .product-list-container__item-info
+                .product-list-container__item-info-price
+                  ¥ 999
+                .product-list-container__item-info-likes
+                  %i.icon.fal.fa-heart
+                  999
+              .product-list-container__item-tax
+                （税込）
+      = render 'shared/paging'
+      = render 'shared/special-description'
+  = render 'shared/footer'
+  = render 'shared/sell_btn'

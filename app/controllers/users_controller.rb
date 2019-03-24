@@ -13,14 +13,16 @@ class UsersController < ApplicationController
   end
 
   def show
-	end
-
-	def identification
-		@prefectures = Prefecture.all
-	end
+  end
 
   def edit
-	end
+  end
+
+  def logout
+  end
+
+  def card
+  end
 
 	def logout
 	end
