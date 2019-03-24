@@ -8,26 +8,14 @@
           = link_to new_user_registration_path, class: "signup-panel__btn-default signup-panel__btn-mail" do
             %i.icon-mail
             メールアドレスで登録
-          %button#facebook-login.signup-panel__btn-default.signup-panel__btn-sns.signup-panel__btn-sns__facebook
+
+          = link_to user_facebook_omniauth_authorize_path, class: "facebook-login signup-panel__btn-default signup-panel__btn-sns signup-panel__btn-sns__facebook" do
+            %button
             %i.icon-facebook
             Facebookで登録
-          %button#google-login.signup-panel__btn-default.signup-panel__btn-sns.signup-panel__btn-sns__google
+
+          = link_to user_google_oauth2_omniauth_authorize_path, class: "google-login signup-panel__btn-default signup-panel__btn-sns signup-panel__btn-sns__google" do
+            %button
             %i.icon-google-plus
             Googleで登録
-    %form#login_form_facebook{action: "/jp/signup/facebook/", method: "POST", novalidate: "novalidate"}
-      %input{name: "__csrf_value", type: "hidden", value: ""}/
-      %input{name: "nickname", type: "hidden", value: ""}/
-      %input{name: "email", type: "hidden", value: ""}/
-      %input{name: "facebook_user_id", type: "hidden", value: ""}/
-      %input{name: "facebook_access_token", type: "hidden", value: ""}/
-      %input{name: "login_type", type: "hidden", value: "facebook"}/
-    %form#login_form_google{action: "/jp/signup/google/", method: "POST", novalidate: "novalidate"}
-      %input{name: "__csrf_value", type: "hidden", value: ""}/
-      %input{name: "nickname", type: "hidden", value: ""}/
-      %input{name: "email", type: "hidden", value: ""}/
-      %input{name: "google_user_id", type: "hidden", value: ""}/
-      %input{name: "google_access_token", type: "hidden", value: ""}/
-      %input{name: "login_type", type: "hidden", value: "google"}/
-    %input#google_client_id{type: "hidden", value: ""}/
-    %input#facebook_app_id{type: "hidden", value: ""}/
   = render partial: "shared/new-footer"
