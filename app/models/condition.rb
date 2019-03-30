@@ -8,11 +8,11 @@ class Condition < ApplicationRecord
   	scratches_and_dirt: 5,
   	bad: 6
   }
-  class << self
-    def localed_statuses
-      conditions.keys.map do |s|
-        [ApplicationController.helpers.t("condition.condition.#{s}"), s]
-      end
+
+  def self.localed_conditions
+    conditions.keys.map do |s|
+      [ApplicationController.helpers.t("condition.condition.#{s}"), s]
     end
   end
+
 end
