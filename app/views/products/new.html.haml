@@ -46,10 +46,7 @@
                       商品の状態
                       %span.product-single-container__form-require 必須
                     .product-single-container__select-wrap
-                      %select.product-single-container__select-default
-                        - @productConditions.each do |productCondition|
-                          %option{value: "#{productCondition.value}"}
-                            = productCondition.name
+                      = select_tag :condition, options_for_select(Condition.localed_statuses), autofocus: 'true', class: 'product-single-container__select-default'
                       %i.icon-arrow-bottom
               .product-single-container__content.product-single-container__clearfix
                 %h3.product-single-container__sell-sub-head 配送について
