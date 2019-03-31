@@ -46,10 +46,7 @@
                       商品の状態
                       %span.product-single-container__form-require 必須
                     .product-single-container__select-wrap
-                      %select.product-single-container__select-default
-                        - @productConditions.each do |productCondition|
-                          %option{value: "#{productCondition.value}"}
-                            = productCondition.name
+                      = select_tag :condition, options_for_select(Condition.localed_conditions), autofocus: 'true', class: 'product-single-container__select-default'
                       %i.icon-arrow-bottom
               .product-single-container__content.product-single-container__clearfix
                 %h3.product-single-container__sell-sub-head 配送について
@@ -60,30 +57,21 @@
                       配送料の負担
                       %span.product-single-container__form-require 必須
                     .product-single-container__select-wrap
-                      %select.product-single-container__select-default
-                        - @payShippings.each do |payShipping|
-                          %option{value: "#{payShipping.value}"}
-                            = payShipping.name
+                      = select_tag :shipping_fee, options_for_select(ShippingFee.localed_shipping_fees), autofocus: 'true', class: 'product-single-container__select-default'
                       %i.icon-arrow-bottom
                   .product-single-container__form-group
                     %label
                       発送元の地域
                       %span.product-single-container__form-require 必須
                     .product-single-container__select-wrap
-                      %select.product-single-container__select-default
-                        - @prefectures.each do |prefecture|
-                          %option{value: "#{prefecture.id}"}
-                            = prefecture.name
+                      = select_tag :shipping_from, options_for_select(ShippingFrom.localed_shipping_froms), autofocus: 'true', class: 'product-single-container__select-default'
                       %i.icon-arrow-bottom
                   .product-single-container__form-group
                     %label
                       発送までの日数
                       %span.product-single-container__form-require 必須
                     .product-single-container__select-wrap
-                      %select.product-single-container__select-default
-                        - @shippingDates.each do |shippingDate|
-                          %option{value: "#{shippingDate.value}"}
-                            = shippingDate.name
+                      = select_tag :shipping_term, options_for_select(ShippingTerm.localed_shipping_terms), autofocus: 'true', class: 'product-single-container__select-default'
                       %i.icon-arrow-bottom
               .product-single-container__content.product-single-container__clearfix
                 %h3.product-single-container__sell-sub-head 販売価格(300〜9,999,999)

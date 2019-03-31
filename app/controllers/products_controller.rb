@@ -3,11 +3,7 @@ class ProductsController < ApplicationController
 	end
 
 	def new
-		@productCategories = ProductCategory.all
-		@productConditions = ProductCondition.all
-		@payShippings = PayShipping.all
-		@prefectures = Prefecture.all
-		@shippingDates = ShippingDate.all
+	  @productCategories = ProductCategory.all
 	end
 
 	def product_list
