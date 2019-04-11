@@ -8,14 +8,17 @@ Rails.application.routes.draw do
 
   resources :products, only: [:new] do
   	collection do
+      get 'product_list'
   		get 'buy_confirm'
   	end
   end
 
-  resources :users, only: [:edit, :update] do
-    resources :profiles, only: [:edit]
-  	collection do
-  		get 'logout'
+  resources :users, only: [:show, :edit] do
+    resource :profiles, only: [:edit]
+    collection do
+      get 'logout'
+      get 'card'
   	end
   end
+
 end
