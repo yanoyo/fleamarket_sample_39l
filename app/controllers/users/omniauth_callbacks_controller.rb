@@ -1,4 +1,13 @@
 class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
+  include Devise::Controllers::Rememberable
+
+  def after_sign_in_path_for(resource)
+    if current_user.profile
+      root_path
+    else
+      new_user_registration_path
+    end
+  end
 
   def facebook
     callback_for(:facebook)
@@ -25,4 +34,3 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
   end
 
 end
-

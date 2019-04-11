@@ -10,6 +10,10 @@ class User < ApplicationRecord
   validates :password, length: { minimum: 6 , maximum: 128 }
 
   has_many :sns_credentials
+  has_one :profile, dependent: :destroy, inverse_of: :user
+
+  accepts_nested_attributes_for :profile, allow_destroy: true, reject_if: :all_blank
+
 
   def self.create_from_auth!(auth)
     data = auth['info']
