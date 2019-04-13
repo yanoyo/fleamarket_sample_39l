@@ -1,5 +1,5 @@
 class Users::RegistrationsController < Devise::RegistrationsController
-
+  prepend_before_action :check_captcha, only: [:create]
   # def new
   #  super
   # end
@@ -35,7 +35,16 @@ class Users::RegistrationsController < Devise::RegistrationsController
                                  :birth_day
                                ])
   end
-   # protected
+
+  def check_captcha
+    self.resource = resource_class.new sign_up_params
+    resource.validate
+    unless verify_recaptcha(model: resource)
+      respond_with_navigational(resource) { render :new }
+    end
+  end
+
+  # protected
 
   # def after_signup_path_for(resorce)
   #   root_path
