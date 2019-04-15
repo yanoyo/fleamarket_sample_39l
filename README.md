@@ -9,10 +9,12 @@
 |nickname|string|null: fales|
 |email|string|unique: true, null: false|
 |password|string|null: false|
+|phone|string|unique: true, null: false|
 
 ### Association
 
 - has_one  :profile
+- has_one  :address
 - has_many :sns_credentials
 - has_many :products, through: :deals
 - has_many :favorites, dependent: :destroy
@@ -33,23 +35,32 @@
 |first_name|string|
 |family_name_kana|string|
 |first_name_kana|string|
-|zip|string|
-|prefecture|string|
-|city|string|
-|building|string|
-|phone|string|
 |birth_year|integer|
 |birth_month|integer|
 |birth_day|integer|
-|profile_content|text|
 |profile_image|text|
-|profile_icon|text|
+|profile_content|text|
 |user_id|references|foreign_key: true|
 
 ### Association
 
 - belongs_to :user
 
+
+## addresses table
+
+|Column|Type|Option|
+|------|----|------|
+|zip|string|
+|city|string|
+|block|string|
+|building|string|
+|user_id|references|foreign_key: true|
+
+### Association
+
+- belongs_to :user
+- belongs_to_active_hash :prefecture
 
 ## sns_credentials table
 
