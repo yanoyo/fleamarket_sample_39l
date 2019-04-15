@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   root 'products#index'
 
   get 'signup', to: 'users#signup'
- 
+
   resources :products, only: [:new] do
   	collection do
       get 'product_list'
