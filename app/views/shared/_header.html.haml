@@ -22,16 +22,16 @@
       %nav.pc-header__bottom-right
         %ul
           %li
-            = link_to mypage_path, class: 'nav-notification' do
+            = link_to user_path(current_user), class: 'nav-notification' do
               = fa_icon 'bell', class: 'nav-notification-icon'
               おしらせ
           %li
-            = link_to mypage_path, class: 'nav-todo' do
+            = link_to user_path(current_user), class: 'nav-todo' do
               = fa_icon 'check', class: 'nav-todo-icon'
               やることリスト
           %li
             = image_tag 'member_photo_noimage_thumb.png',alt:'noimage_thumb',class: 'nav-mypage-icon'
-            = link_to 'マイページ', mypage_path, class: 'nav-mypage'
+            = link_to 'マイページ', user_path(current_user), class: 'nav-mypage'
     - else
       %nav.pc-header__bottom-right
         %ul

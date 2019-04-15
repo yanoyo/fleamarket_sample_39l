@@ -11,8 +11,6 @@ Rails.application.routes.draw do
   	end
   end
 
-  get 'mypage', to: 'users#show'
-
   resources :users, only: [:show, :edit] do
     resource :profiles, only: [:edit]
     collection do
