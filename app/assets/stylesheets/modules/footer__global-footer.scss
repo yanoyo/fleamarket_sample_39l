@@ -1,69 +1,95 @@
 .global-footer {
   width: 100%;
   background: $almostblack;
-  padding: 60px 0;
-  text-align: center;
+  color: $white;
   &__lists {
-    width: 90%;
+    width: 75%;
     margin: 0 auto;
+    text-align: center;
   }
   &__list {
     display: inline-block;
     vertical-align: top;
-    width: 23%;
+    margin-right: 15px;
+    margin-top: 18px;
+    width: 20%;
+    text-align: left;
+  }
+  &__list:last-child {
+    margin-right: 0;
+    width: 10%;
+  }
+  &__widelist {
+    display: inline-block;
+    margin-right: 15px;
+    margin-top: 18px;
+    width: 40%;
+    text-align: left;
   }
   &__title {
     color: $white;
     font-size: 16px;
-    text-align: center;
+    font-weight: 100;
+    width: 100%;
+    margin-bottom: 10px;
   }
   &__link {
-    margin: 0;
+    font-size: 12px;
+    display: inline-block;
+    width: 100%;
+    a {
+      text-decoration: none;
+      color: $gray;
+    }
+    a:hover {
+      text-decoration: underline;
+      opacity: 1.0;
+    }
+    li {
+      padding: 10px 0;
+    }
+    &-icon {
+      display: inline-block;
+      a {
+        color: $white;
+      }
+      a:hover {
+        opacity: 1.0;
+        text-decoration: none;
+      }
+      li {
+        float: left;
+        padding: 0 20px 0 0;
+      }
+    }
+  }
+  &__inner {
+    width: 43%;
     padding-top: 0;
-    list-style: none;
-    font-size: 14px;
-    display: block;
-    padding-top: 8px;
-    vertical-align: middle;
-    &-general {
-      padding-top: 8px;
-      a {
-        text-decoration: none;
-        color: $white;
-      }
-      a:hover {
-        text-decoration: underline;
-        color: $gray;
-      }
-    }
-    &-country {
-      padding-top: 8px;
-      img {
-        line-height: 24px;
-        width: 22px;
-      }
-      a {
-        text-decoration: none;
-        color: $darkgray;
-      }
-      a.active {
-        text-decoration: none;
-        color: $white;
-      }
-      a:hover {
-        text-decoration: underline;
-      }
-    }
+    margin-right: 15px;
+    float: left;
+  }
+  &__inner:last-child {
+    margin: 0;
+    padding: 0;
+  }
+  &__bottom {
+    width: 75%;
+    margin: 0 auto;
+    text-align: center;
+    padding-bottom: 20px;
   }
   &__logo {
-    display: block;
-    margin: 40px 0 0;
-    text-align: center;
+    width: 20%;
+    margin-left: 20px;
+    text-align: left;
+    float: left;
   }
   &__copyright {
-    margin: 8px 0 0;
+    width: 80%;
+    line-height: 33px;
+    vertical-align: middle;
     text-align: center;
-    font-size: 14px;
     color: $white;
   }
 }

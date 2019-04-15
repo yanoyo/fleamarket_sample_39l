@@ -3,13 +3,15 @@ Rails.application.routes.draw do
   root 'products#index'
 
   get 'signup', to: 'users#signup'
- 
+
   resources :products, only: [:new] do
   	collection do
       get 'product_list'
   		get 'buy_confirm'
   	end
   end
+
+  get 'mypage', to: 'users#show'
 
   resources :users, only: [:show, :edit] do
     resource :profiles, only: [:edit]
