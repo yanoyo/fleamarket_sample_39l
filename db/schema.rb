@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20190331021850) do
+ActiveRecord::Schema.define(version: 20190410121712) do
 
   create_table "brands", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name",       null: false
@@ -32,10 +32,10 @@ ActiveRecord::Schema.define(version: 20190331021850) do
   end
 
   create_table "images", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.text     "image",      limit: 65535, null: false
     t.integer  "product_id"
     t.datetime "created_at",               null: false
     t.datetime "updated_at",               null: false
+    t.text     "image",      limit: 65535
     t.index ["product_id"], name: "index_images_on_product_id", using: :btree
   end
 
@@ -45,12 +45,17 @@ ActiveRecord::Schema.define(version: 20190331021850) do
   end
 
   create_table "products", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.text     "name",        limit: 65535, null: false
+    t.text     "name",            limit: 65535,             null: false
     t.integer  "category_id"
-    t.integer  "price",                     null: false
-    t.text     "description", limit: 65535
-    t.datetime "created_at",                null: false
-    t.datetime "updated_at",                null: false
+    t.integer  "price",                                     null: false
+    t.text     "description",     limit: 65535
+    t.datetime "created_at",                                null: false
+    t.datetime "updated_at",                                null: false
+    t.integer  "condition",                     default: 0, null: false
+    t.integer  "shipping_from",                 default: 0, null: false
+    t.integer  "shipping_method",               default: 0, null: false
+    t.integer  "shipping_term",                 default: 0, null: false
+    t.integer  "shipping_fee",                  default: 0, null: false
     t.index ["category_id"], name: "index_products_on_category_id", using: :btree
   end
 

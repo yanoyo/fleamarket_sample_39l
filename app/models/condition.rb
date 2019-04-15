@@ -1,4 +1,6 @@
 class Condition < ApplicationRecord
+  has_one :product
+
   enum condition: { 
   	unselected: 0,
   	unused: 1,
@@ -10,7 +12,8 @@ class Condition < ApplicationRecord
   }
 
   def self.localed_conditions
-    conditions.keys.map do |s|
+    binding.pry
+    conditions.values.map do |s|
       [ApplicationController.helpers.t("condition.condition.#{s}"), s]
     end
   end

@@ -9,6 +9,6 @@ class ShippingTerm < ApplicationRecord
   def self.localed_shipping_terms
   	shipping_terms.keys.map do |s|
   	  [ApplicationController.helpers.t("shipping_term.shipping_term.#{s}"), s]
-	end
+	  end
   end
 end
