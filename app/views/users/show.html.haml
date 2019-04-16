@@ -7,7 +7,8 @@
         = link_to "" do
           %figure
             = image_tag "https://static-mercari-jp-imgtr2.akamaized.net/images/member_photo_noimage_thumb.png", size: "60x60"
-          %h2.bold テストユーザ
+          %h2.bold
+            = current_user.nickname
           .mypage-content__number
             %div
               評価
