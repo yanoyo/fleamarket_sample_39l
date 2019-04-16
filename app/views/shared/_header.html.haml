@@ -3,27 +3,39 @@
     = link_to image_tag('logo.svg', alt:"mercari"), root_path
     .pc-header__form
       %form
-        %input.pc-header__form-keyword{ type:"search", placeholder: "キーワードから探す"}
+        %input.pc-header__form-keyword{ type:"search", placeholder: "何かお探しですか？"}
         %button.pc-header__form-submit{ type:"submit" }
           = fa_icon 'search', class: ''
-    .pc-header__bottom.clearfix
-      %nav.pc-header__bottom-left
-        %ul
-          %li
-            = link_to "カテゴリーから探す", 'hoge'
-        %ul
-          %li
-            = link_to "ブランドから探す", 'hoge'
+  .pc-header__bottom.clearfix
+    %nav.pc-header__bottom-left
+      %ul
+        %li
+          = link_to "/category/" do
+            = fa_icon 'list', class: 'nav-list-icon'
+            カテゴリーから探す
+      %ul
+        %li
+          = link_to "/brand/"  do
+            = fa_icon 'tag', class: 'nav-tag-icon'
+            ブランドから探す
+    - if user_signed_in?
       %nav.pc-header__bottom-right
         %ul
           %li
-            = image_tag 'member_photo_noimage_thumb.png',alt:'noimage_thumb',class: 'nav_mypage_icon'
-            = link_to 'マイページ', '/mypage/', class: 'nav-mypage'
-          %li
-            = link_to '/mypage/notification/', class: 'nav-notification' do
+            = link_to user_path(current_user), class: 'nav-notification' do
               = fa_icon 'bell', class: 'nav-notification-icon'
               おしらせ
           %li
-            = link_to '/mypage/todo/', class: 'nav-todo' do
+            = link_to user_path(current_user), class: 'nav-todo' do
               = fa_icon 'check', class: 'nav-todo-icon'
               やることリスト
+          %li
+            = image_tag 'member_photo_noimage_thumb.png',alt:'noimage_thumb',class: 'nav-mypage-icon'
+            = link_to 'マイページ', user_path(current_user), class: 'nav-mypage'
+    - else
+      %nav.pc-header__bottom-right
+        %ul
+          %li
+            = link_to "ログイン", new_user_session_path, class: 'header-btn btn-login'
+          %li
+            = link_to "新規会員登録", signup_path, class: 'header-btn btn-signup'
