@@ -3,20 +3,18 @@ class ProductsController < ApplicationController
   end
 
   def new
-  	@product = Product.new
-  	@product.images.build
-  	@categoryroot = Category.find(16).siblings
+  @product = Product.new
+  @product.images.build
+  @categoryroot = Category.find(16).siblings
   end
   	
   def create
-  	@product = Product.new(product_params)
-	
-	if @product.save
-	  redirect_to root_path(@product)
-	else
-	  redirect_to new_product_path
-    end
-  
+  @product = Product.new(product_params)
+  if @product.save
+  	redirect_to root_path(@product)
+  else
+	redirect_to new_product_path
+  end
   end
 
   def product_list
