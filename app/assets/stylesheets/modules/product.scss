@@ -58,10 +58,6 @@
         transition: box-shadow ease-out .3s, -webkit-box-shadow ease-out .3s;
         cursor: pointer;
     }
-    // .have-item-1 {
-    //     width: 491px;
-    //     float: right;
-    // }
     &__visible-pc {
         display: block;
         position: absolute;
@@ -125,9 +121,6 @@
         padding: 0;
         height: 116px;
         line-height: 116px;
-        // &.landscape {
-        //     line-height: 116px;
-        // }
         img {
             cursor: default;
             position: absolute;

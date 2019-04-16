@@ -12,7 +12,6 @@ class Condition < ApplicationRecord
   }
 
   def self.localed_conditions
-    binding.pry
     conditions.values.map do |s|
       [ApplicationController.helpers.t("condition.condition.#{s}"), s]
     end
