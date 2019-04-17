@@ -4,10 +4,9 @@
   %main.l-container.l-container__clearfix
     .mypage-content
       .mypage-content__chapter-container
-        %form.mypage-content__inner{action: "", method: "POST"}
+        .mypage-content__inner
           .mypage-content__single-content
-            %button.mypage-content__btn-default.mypage-content__single-content__btn-red{:type => "submit"} ログアウト
-            %input{:name => "__csrf_value", :type => "hidden", :value => ""}
+            =link_to "ログアウト", destroy_user_session_path, method: :delete, class: "mypage-content__btn-default mypage-content__single-content__btn-red"
     = render partial: "shared/sidebar"
   = render partial: "shared/footer"
   = render partial: "shared/sell_btn"
