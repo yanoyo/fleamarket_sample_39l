@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   devise_scope :user do
     get 'signup', to: 'users/registrations#signup'
-    get "signup/registration", to: "users/registrations#sns", as: "new_user_registration"
+    get "signup/registration", to: "users/registrations#new", as: "new_user_registration"
     get "mypage", to: "users#show", as: "user"
   end
   devise_for :users,

@@ -5,7 +5,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
   def signup
   end
 
-  def sns
+  def new
     @user = User.new(
       nickname: session[:nickname],
       email: session[:email],
@@ -48,12 +48,6 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
 
 
-  def phone
-  end
-
-
-
-
 
   def address
     @address = Address.new(
@@ -68,17 +62,6 @@ class Users::RegistrationsController < Devise::RegistrationsController
       building: session[:building],
       home_phone: session[:home_phone]
       )
-  end
-
-
-
-  def credit
-  end
-
-
-
-
-  def complete
   end
 
 

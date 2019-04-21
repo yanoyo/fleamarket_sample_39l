@@ -1,4 +1,27 @@
-%h3
-  アカウントできたよ。
+.user-new-registration
+  = render partial: "shared/new-header"
+  .single-main
+    .l-single-container
+      %h2.single-main-container__head 会員登録完了
+      .right-container__inner
+        .complete-group
+          %p.text-center
+            ありがとうございます。
+            %br.p.text-center
+              会員登録が完了しました。
+          = link_to "メルカリをはじめる", root_path, id: "last-submit", class: "form-group__btn-default form-group__btn-red"
 
-= link_to "メルカリを始める", root_path
+      .aside
+        .aside__banner-complete
+          .aside__banner-complete__inner
+            %h2#font-title__size スマホでかんたんフリマアプリ
+            %p#font-subtitle__size 今すぐ無料ダウンロード！
+            .aside__banner__inner__icon
+              = image_tag "mercari_icon.png"
+              .aside__banner__inner__icon__app
+                = link_to image_tag("app-store.svg"), "https://itunes.apple.com/jp/app/id667861049?l=ja&mt=8"
+                = link_to image_tag("google-play.svg"), "https://play.google.com/store/apps/details?id=com.kouzoh.mercari&hl=ja"
+          = image_tag "download_content_pc.png", class: "aside__banner__image"
+
+  = render partial: "shared/new-footer"
+  %script{src: "https://apis.google.com/js/platform.js?onload=renderButton", async: "defer"}
