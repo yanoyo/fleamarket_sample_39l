@@ -7,7 +7,7 @@ class ProductsController < ApplicationController
     @product.images.build
     @categoryroot = Category.find(16).siblings
   end
-  	
+
   def create
     @product = Product.new(product_params)
     if @product.save
@@ -15,6 +15,9 @@ class ProductsController < ApplicationController
     else
       redirect_to new_product_path
     end
+  end
+
+  def show
   end
 
   def product_list
