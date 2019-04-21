@@ -1,0 +1,406 @@
+.user-new-registration {
+  padding: 0 0 220px;
+  .single-header {
+    height: 128px;
+    text-align: center;
+    h1 {
+      margin: 40px 0 0;
+      display: inline-block;
+    }
+    a {
+      width: 185px;
+      height: 49px;
+      line-height: 49px;
+      display: inline-block;
+      margin-right: 8px;
+    }
+    img {
+      width: 185px;
+      height: 49px;
+    }
+  }
+
+  .single-footer {
+    width: 456px;
+    margin: 0 auto;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 1;
+    padding: 40px 0;
+    text-align: center;
+    ul {
+      font-size: 0;
+    }
+    li {
+      display: inline-block;
+      margin: 0 0 0 16px;
+      font-size: 12px;
+      &:first-child {
+        margin: 0;
+      }
+    }
+    a {
+      display: block;
+      color: #333;
+    }
+    p {
+      margin: 8px 0 0;
+    }
+    small {
+      font-size: 12px;
+    }
+    &-logo {
+      width: 80px;
+      height: 65px;
+      margin: 40px auto 0;
+    }
+  }
+}
+
+.single-main {
+  display: block;
+  background-color: $whitesmoke;
+}
+
+.l-single-container {
+  width: 700px;
+  margin: 0 auto;
+  background-color: $white;
+}
+
+.single-main-container__head__main{
+  padding: 32px 16px;
+  font-size: 24px;
+  background-color: $white;
+  text-align: center;
+  font-weight: bold;
+}
+
+.single-main-container__head__phone{
+  padding: 8px 24px;
+  font-size: 24px;
+  background-color: $white;
+  text-align: center;
+  font-weight: bold;
+}
+
+.single-main-container__head__address{
+  padding: 32px 16px;
+  font-size: 24px;
+  background-color: $white;
+  text-align: center;
+  font-weight: bold;
+}
+
+.single-main-container__head__pay {
+  padding: 32px 16px;
+  font-size: 24px;
+  background-color: $white;
+  text-align: center;
+  font-weight: bold;
+}
+
+
+.hidden {
+  display: none;
+}
+
+.active {
+  display: block;
+}
+
+
+.right-container__inner__main {
+  background-color: $white;
+  border-top: 1px solid $whitesmoke;
+  padding: 64px;
+}
+
+.right-container__inner__phone {
+  background-color: $white;
+  border-top: 1px solid $whitesmoke;
+  padding: 64px;
+}
+
+.right-container__inner__address {
+  background-color: $white;
+  border-top: 1px solid $whitesmoke;
+  padding: 64px;
+}
+
+.right-container__inner__pay {
+  background-color: $white;
+  border-top: 1px solid $whitesmoke;
+  padding: 64px;
+}
+
+.l-single-content {
+  max-width: 320px;
+  margin: 0 auto;
+}
+
+.l-chapter-sub-head {
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.l-single-text {
+  margin: 8px 0 0;
+  line-height: 1.5;
+  &__text-center {
+    text-align: center;
+    line-height: 1.5;
+  }
+}
+
+.hidden{
+  display: none;
+}
+
+.active{
+  display: block;
+}
+
+.form-group {
+  display: block;
+  &:first-child {
+    margin: 0;
+  }
+  margin: 40px 0 0;
+  label {
+    font-weight: 600;
+    display: inline-block;
+  }
+  @include btn-default();
+  @include btn-red();
+}
+
+span.form-require {
+  background: #ea352d;
+  margin: 0 0 0 10px;
+  padding: 3px 3px 3px 3px;
+  border-radius: 2px;
+  color: $white;
+  font-size: 12px;
+  vertical-align: top;
+}
+
+#form-arbitrary {
+  margin: 0 0 0 4px;
+  padding: 1px 4px;
+  border-radius: 2px;
+  color: #fff;
+  font-size: 12px;
+  background: #ccc;
+}
+
+.input-default {
+  width: 89.5%;
+  margin: 8px 0 0;
+  height: 28px;
+  padding: 10px 16px 8px;
+  border-radius: 4px;
+  border: 1px solid $gray;
+  background: $white;
+  line-height: 1.5;
+  font-size: 16px;
+}
+
+.select-wrap {
+  display: inline-block;
+  margin: 8px 0 0;
+  span {
+    position: relative;
+    right: 14px;
+  }
+  .select-default {
+    position: relative;
+    width: 140px;
+    height: 48px;
+    padding: 0 16px;
+    border: 1px solid $gray;
+    background: 0;
+    font-size: 16px;
+    line-height: 1.5;
+    cursor: pointer;
+    &__prefecture {
+      position: relative;
+      width: 320px;
+      height: 48px;
+      padding: 0 16px;
+      border: 1px solid $gray;
+      background: 0;
+      font-size: 16px;
+      line-height: 1.5;
+      cursor: pointer;
+    }
+  }
+
+  .fa-angle-down {
+    position: relative;
+    z-index: 2;
+    right: 37px;
+    top: 21px;
+    color: #888;
+    font-size: 28px;
+    font-weight: 900;
+    transform: translate(0, -50%);
+  }
+
+  .fa-angle-down.prefecture {
+    position: relative;
+    left: 284px;
+    z-index: 2;
+    color: #888;
+    font-size: 28px;
+    font-weight: 900;
+    transform: translate(0, -117%);
+  }
+}
+
+input:focus {
+  border: 1px solid $lightblue;
+  outline: 0;
+}
+
+select:focus {
+  border: 1px solid $lightblue;
+  outline: 0;
+}
+
+.form-info-text {
+  color: #888;
+  margin: 8px 0 0;
+  line-height: 1.5;
+}
+
+.font-small {
+  font-size: 10px;
+}
+.font-color-gray {
+  color:#888;
+}
+
+#font-color-blue {
+  color: #0099e8;
+}
+
+
+.text-right {
+text-align: right;
+}
+
+.right-container__inner {
+  background-color: $white;
+  border-top: 1px solid $whitesmoke;
+  padding: 64px;
+}
+
+.font-size-small {
+  font-size: 13px;
+}
+
+
+#font-small-submit {
+  font-size: 13px;
+  margin-top: 40px;
+}
+
+#font-change {
+  font-weight: 10px;
+}
+
+.space-top{
+  margin-top: 5px;
+}
+
+
+#card_y{
+  width: 120px;
+}
+
+#card_m{
+  width: 120px;
+}
+
+#deadline {
+  font-size: 28px;
+  left: 667px;
+  position: absolute;
+  margin-top: 9px;
+}
+
+
+.custom {
+  box-sizing: border-box;
+  background: white;
+  width: 100%;
+  padding: 9px 8px 9px 8px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  line-height: 1.5;
+  font-size: 16px;
+  text-align: center;
+  font-size: 14px;
+}
+
+#user_user_profile_attributes_expiration_year {
+  width: 44%;
+}
+
+#user_user_profile_attributes_expiration_month {
+  width: 44%;
+}
+
+
+
+.signup-header{
+  justify-content: space-between;
+}
+
+.progress__title {
+  display: inline-block;
+}
+
+.progress__line {
+  display: inline-block;
+}
+
+
+
+
+
+.custom__main{
+  text-align: center;
+}
+.custom__phone{
+  text-align: center;
+}
+.custom__address{
+  text-align: center;
+}
+.custom__pay{
+  text-align: center;
+}
+
+
+.signup_input{
+  padding: 0 10px;
+  width: 330px;
+  height: 50px;
+  border-radius: 5px;
+  border:  1px solid #CCCCCC;
+}
+
+
+.error {
+  margin: 8px 0 0;
+  color: #ea352d;
+  font-size: 14px;
+}
+
+.self-form__prefecture__nil {
+  margin-top: -20px;
+}

@@ -11,8 +11,10 @@ class User < ApplicationRecord
 
   has_many :sns_credentials
   has_one :profile, dependent: :destroy, inverse_of: :user
+  has_one :address, dependent: :destroy, inverse_of: :user
 
-  accepts_nested_attributes_for :profile, allow_destroy: true, reject_if: :all_blank
+  accepts_nested_attributes_for :profile, allow_destroy: true, reject_if: :all_blank, update_only: true
+  accepts_nested_attributes_for :address, allow_destroy: true, reject_if: :all_blank, update_only: true
 
 
   def self.create_from_auth!(auth)
