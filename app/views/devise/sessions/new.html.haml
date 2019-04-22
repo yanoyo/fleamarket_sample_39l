@@ -24,7 +24,6 @@
               = f.password_field :password, autocomplete: "current-password", placeholder: "パスワード", class: "login-input-text login-panel__input-default"
             .form-group
               = recaptcha_tags site_key: '6Ldv_Z0UAAAAAOqBBPM4wAmr5647BOBnB-eWS3dF'
-
             = f.submit "ログイン", class: "login-submit login-panel__btn-default login-panel__btn-red"
             = link_to "パスワードをお忘れの方",""
   = render partial: "shared/new-footer"
