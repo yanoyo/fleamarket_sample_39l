@@ -1,4 +1,6 @@
 class ProductsController < ApplicationController
+  before_action :set_product
+
   def index
   end
 
@@ -18,15 +20,12 @@ class ProductsController < ApplicationController
   end
 
   def edit
-    @product = Product.find(params[:id])
     @product.images.build
     @categoryroot = Category.find(16).siblings
-    category_id = @product.category_id
-    @category_ids = Category.find_by(id: category_id).path_ids
+    @category_ids = Category.find(@product.category_id).path_ids
   end
 
   def update
-    @product = Product.find(params[:id])
     if @product.update(update_product_params)
   	  redirect_to root_path(@product)
     else
@@ -41,6 +40,10 @@ class ProductsController < ApplicationController
   end
 
   private
+  def set_product
+    @product = Product.find(params[:id])
+  end
+
   def product_params
     params.require(:product).permit(:name, :description, :category_id, :price, :condition, :shipping_fee, :shipping_method, :shipping_from, :shipping_term, images_attributes: [:image])
   end
