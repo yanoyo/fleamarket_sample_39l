@@ -1,0 +1,65 @@
+.item-table {
+  min-width: 300px;
+  max-width: 300px;
+  min-height: 375px;
+  border-collapse: collapse;
+  table {
+    display: table;
+    border-collapse: separate;
+    border-spacing: 2px;
+  }
+  th {
+    width: 39%;
+    text-align: left;
+    font-weight: 400;
+    background: $palegray;
+    padding: 8px;
+    border-collapse: collapse;
+    border: 1px solid $whitesmoke;
+
+  }
+  td {
+    width: 61%;
+    background: $white;
+    padding: 8px;
+    border-collapse: collapse;
+    border: 1px solid $whitesmoke;
+  }
+  &__rating {
+    display: block;
+    padding-top: 8px;
+    line-height: 16px;
+    vertical-align: middle;
+    span {
+      color: $almostblack;
+      font-size: 14px;
+    }
+    &-good {
+      float: left;
+      font-size: 16px;
+      color: $pink;
+      padding-right: 15px;
+    }
+    &-normal {
+      float: left;
+      font-size: 16px;
+      color: $orange;
+      padding-right: 15px;
+    }
+    &-bad {
+      float: left;
+      font-size: 16px;
+      color: $paleblue;
+    }
+  }
+  &__category {
+    &-child::before {
+      padding: 0 5px;
+      font-family: "Font Awesome 5 Free";
+      content: '\f105';
+      font-weight: 900;
+      text-decoration: none;
+    }
+  }
+}
+

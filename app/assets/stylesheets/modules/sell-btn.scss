@@ -8,13 +8,10 @@
   background-color: $sellbtnred;
   border-radius: 50%;
   text-align: center;
-  a {
-    text-decoration: none;
-    cursor: pointer;
-    cursor: hand;
-  }
+  text-decoration: none;
+  color: $white;
+  opacity: 1.0;
   &__text{
-    color: $white;
     margin: 32px 0 0 0;
     font-size:20px;
   }
