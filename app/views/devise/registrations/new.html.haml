@@ -4,10 +4,10 @@
   .single-main
   = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
     .l-single-container
-      %h2.single-main-container__head__main.hidden.active 会員情報入力
-      %h2.single-main-container__head__phone.hidden 電話番号の確認
-      %h2.single-main-container__head__address.hidden 発送元・お届け先住所入力
-      %h2.single-main-container__head__pay.hidden 支払い方法
+      .single-main-container__head__main.hidden.active 会員情報入力
+      .single-main-container__head__phone.hidden 電話番号の確認
+      .single-main-container__head__address.hidden 発送元・お届け先住所入力
+      .single-main-container__head__pay.hidden 支払い方法
 
       = f.fields_for :profile do |p|
         .right-container__inner__main.hidden.active

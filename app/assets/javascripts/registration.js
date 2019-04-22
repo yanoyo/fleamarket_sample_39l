@@ -16,19 +16,19 @@ $(function() {
   };
 
 
-  $(document).on('click', '.custom__main', function() {
+  $('.custom__main').on('click', function() {
 
-    var nickname = document.getElementById('user_nickname').value;
-    var email = document.getElementById('user_email').value;
-    var password = document.getElementById('user_password').value;
-    var password_confirmation = document.getElementById('user_confirmation_password').value;
-    var family_name = document.getElementById('user_profile_attributes_family_name').value;
-    var first_name = document.getElementById('user_profile_attributes_first_name').value;
-    var family_name_kana = document.getElementById('user_profile_attributes_family_name_kana').value;
-    var first_name_kana = document.getElementById('user_profile_attributes_first_name_kana').value;
-    var birth_year = document.getElementById('user_profile_attributes_birth_year').value;
-    var birth_month = document.getElementById('user_profile_attributes_birth_month').value;
-    var birth_day = document.getElementById('user_profile_attributes_birth_day').value;
+    var nickname = getElementById('user_nickname').value;
+    var email = getElementById('user_email').value;
+    var password = getElementById('user_password').value;
+    var password_confirmation = getElementById('user_confirmation_password').value;
+    var family_name = getElementById('user_profile_attributes_family_name').value;
+    var first_name = getElementById('user_profile_attributes_first_name').value;
+    var family_name_kana = getElementById('user_profile_attributes_family_name_kana').value;
+    var first_name_kana = getElementById('user_profile_attributes_first_name_kana').value;
+    var birth_year = getElementById('user_profile_attributes_birth_year').value;
+    var birth_month = getElementById('user_profile_attributes_birth_month').value;
+    var birth_day = getElementById('user_profile_attributes_birth_day').value;
 
     var test_nil_nickname = reg_not_nil.test(nickname);
     var test_nil_email = reg_not_nil.test(email);
@@ -71,18 +71,18 @@ $(function() {
       $('.right-container__inner__main').removeClass('active');
       $('.single-main-container__head__phone').addClass('active');
       $('.right-container__inner__phone').addClass('active');
-      document.documentElement.scrollTop = 0;
+      documentElement.scrollTop = 0;
     }
     else {
-      document.documentElement.scrollTop = 0;
+      documentElement.scrollTop = 0;
     }
   });
 
 
 
-  $(document).on('click', '.custom__phone', function() {
+  $('.custom__phone').on('click', function() {
 
-    var mobile_phone = document.getElementById('user_profile_attributes_mobile_phone').value;
+    var mobile_phone = getElementById('user_profile_attributes_mobile_phone').value;
 
     var test_nil_phone = reg_not_nil.test(mobile_phone);
     var test_format_phone = reg_integer_11_phone_number.test(mobile_phone);
@@ -96,26 +96,26 @@ $(function() {
       $('.right-container__inner__phone').removeClass('active');
       $('.single-main-container__head__address').addClass('active');
       $('.right-container__inner__address').addClass('active');
-      document.documentElement.scrollTop = 0;
+      documentElement.scrollTop = 0;
     }
     else {
-      document.documentElement.scrollTop = 0;
+      documentElement.scrollTop = 0;
     }
   });
 
 
-  $(document).on('click', '.custom__address', function() {
+  $('.custom__address').on('click', function() {
 
-    var relative_family_name = document.getElementById('user_address_attributes_relative_family_name').value;
-    var relative_first_name = document.getElementById('user_address_attributes_relative_first_name').value;
-    var relative_family_name_kana = document.getElementById('user_address_attributes_relative_family_name_kana').value;
-    var relative_first_name_kana = document.getElementById('user_address_attributes_relative_first_name_kana').value;
-    var zip_code = document.getElementById('user_address_attributes_zip_code').value;
-    var prefecture_id = document.getElementById('user_address_attributes_prefecture_id').value;
-    var city = document.getElementById('user_address_attributes_city').value;
-    var block = document.getElementById('user_address_attributes_block').value;
-    var building = document.getElementById('user_address_attributes_building').value;
-    var home_phone = document.getElementById('user_address_attributes_home_phone').value;
+    var relative_family_name = getElementById('user_address_attributes_relative_family_name').value;
+    var relative_first_name = getElementById('user_address_attributes_relative_first_name').value;
+    var relative_family_name_kana = getElementById('user_address_attributes_relative_family_name_kana').value;
+    var relative_first_name_kana = getElementById('user_address_attributes_relative_first_name_kana').value;
+    var zip_code = getElementById('user_address_attributes_zip_code').value;
+    var prefecture_id = getElementById('user_address_attributes_prefecture_id').value;
+    var city = getElementById('user_address_attributes_city').value;
+    var block = getElementById('user_address_attributes_block').value;
+    var building = getElementById('user_address_attributes_building').value;
+    var home_phone = getElementById('user_address_attributes_home_phone').value;
 
     var test_nil_relative_family_name = reg_not_nil.test(relative_family_name);
     var test_nil_relative_first_name = reg_not_nil.test(relative_first_name);
@@ -148,10 +148,10 @@ $(function() {
       $('.right-container__inner__address').removeClass('active');
       $('.single-main-container__head__pay').addClass('active');
       $('.right-container__inner__pay').addClass('active');
-      document.documentElement.scrollTop = 0;
+      documentElement.scrollTop = 0;
     }
     else {
-      document.documentElement.scrollTop = 0;
+      documentElement.scrollTop = 0;
     }
   });
 });

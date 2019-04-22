@@ -70,44 +70,45 @@
   background-color: $white;
 }
 
-.single-main-container__head__main{
-  padding: 32px 16px;
-  font-size: 24px;
-  background-color: $white;
-  text-align: center;
-  font-weight: bold;
-}
 
-.single-main-container__head__phone{
-  padding: 8px 24px;
-  font-size: 24px;
-  background-color: $white;
-  text-align: center;
-  font-weight: bold;
-}
+.single-main-container {
+  &__head {
+    padding: 32px 16px;
+    font-size: 22px;
+    background-color: $white;
+    text-align: center;
+    font-weight: bold;
 
-.single-main-container__head__address{
-  padding: 32px 16px;
-  font-size: 24px;
-  background-color: $white;
-  text-align: center;
-  font-weight: bold;
-}
+    &__main{
+      padding: 32px 16px;
+      font-size: 24px;
+      background-color: $white;
+      text-align: center;
+      font-weight: bold;
+    }
 
-.single-main-container__head__pay {
-  padding: 32px 16px;
-  font-size: 24px;
-  background-color: $white;
-  text-align: center;
-  font-weight: bold;
-}
-
-.single-main-container__head {
-  padding: 32px 16px;
-  font-size: 22px;
-  background-color: $white;
-  text-align: center;
-  font-weight: bold;
+    &__phone {
+      padding: 8px 24px;
+      font-size: 24px;
+      background-color: $white;
+      text-align: center;
+      font-weight: bold;
+    }
+    &__address{
+      padding: 32px 16px;
+      font-size: 24px;
+      background-color: $white;
+      text-align: center;
+      font-weight: bold;
+    }
+    &__pay {
+      padding: 32px 16px;
+      font-size: 24px;
+      background-color: $white;
+      text-align: center;
+      font-weight: bold;
+    }
+  }
 }
 
 
@@ -119,34 +120,33 @@
   display: block;
 }
 
-.right-container__inner {
-  background-color: $white;
-  border-top: 1px solid $whitesmoke;
-  padding: 64px;
-}
+.right-container {
+  &__inner {
+    background-color: $white;
+    border-top: 1px solid $whitesmoke;
+    padding: 64px;
 
-.right-container__inner__main {
-  background-color: $white;
-  border-top: 1px solid $whitesmoke;
-  padding: 64px;
-}
-
-.right-container__inner__phone {
-  background-color: $white;
-  border-top: 1px solid $whitesmoke;
-  padding: 64px;
-}
-
-.right-container__inner__address {
-  background-color: $white;
-  border-top: 1px solid $whitesmoke;
-  padding: 64px;
-}
-
-.right-container__inner__pay {
-  background-color: $white;
-  border-top: 1px solid $whitesmoke;
-  padding: 64px;
+    &__main {
+      background-color: $white;
+      border-top: 1px solid $whitesmoke;
+      padding: 64px;
+    }
+    &__phone {
+      background-color: $white;
+      border-top: 1px solid $whitesmoke;
+      padding: 64px;
+    }
+    &__address {
+      background-color: $white;
+      border-top: 1px solid $whitesmoke;
+      padding: 64px;
+    }
+    &__pay {
+      background-color: $white;
+      border-top: 1px solid $whitesmoke;
+      padding: 64px;
+    }
+  }
 }
 
 .l-single-content {
@@ -295,19 +295,20 @@ text-align: right;
 }
 
 
-.custom__main{
-  text-align: center;
+.custom {
+  &__main{
+    text-align: center;
+  }
+  &__phone{
+    text-align: center;
+  }
+  &__addreess{
+    text-align: center;
+  }
+  &__pay{
+    text-align: center;
+  }
 }
-.custom__phone{
-  text-align: center;
-}
-.custom__address{
-  text-align: center;
-}
-.custom__pay{
-  text-align: center;
-}
-
 
 .signup_input{
   padding: 0 10px;
