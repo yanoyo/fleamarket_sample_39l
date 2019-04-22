@@ -61,9 +61,9 @@
                       - root.children.each do |son|
                         .product-single-container__select-wrap.select-box-list-son
                           - if @category_ids[1] == son.id
-                            = f.collection_select :category_id, son.children, :id, :name, {:include_blank => "---"}, {class: "product-single-container__select-default select-box-son active", son_id: "#{son.id}"}
+                            = f.collection_select :category_id, son.children, :id, :name, {include_blank: "---"}, {class: "product-single-container__select-default select-box-son active", son_id: "#{son.id}"}
                           - else
-                            = f.collection_select :category_id, son.children, :id, :name, {:include_blank => "---"}, {class: "product-single-container__select-default select-box-son", son_id: "#{son.id}"}
+                            = f.collection_select :category_id, son.children, :id, :name, {include_blank: "---"}, {class: "product-single-container__select-default select-box-son", son_id: "#{son.id}"}
                     = f.hidden_field :category_id, {class: "category"}
                   .product-single-container__form-group
                     = f.label :condition do
@@ -139,6 +139,6 @@
                     また、出品をもちまして
                     =link_to "加盟店規約", "", { target: "_blank" }
                 = f.submit "変更する", class: "product-single-container__btn-default product-single-container__btn-box__btn-red"
-                =link_to "もどる", "", { :class => "product-single-container__btn-default product-single-container__btn-box__btn-gray" }
+                =link_to "もどる", "", {class: "product-single-container__btn-default product-single-container__btn-box__btn-gray" }
             .overlay
   = render partial: "shared/new-footer"
