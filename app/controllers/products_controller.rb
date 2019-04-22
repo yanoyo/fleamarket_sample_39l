@@ -7,7 +7,7 @@ class ProductsController < ApplicationController
     @product.images.build
     @categoryroot = Category.find(16).siblings
   end
-  	
+
   def create
     @product = Product.new(product_params)
     if @product.save

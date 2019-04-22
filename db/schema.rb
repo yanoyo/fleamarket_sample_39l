@@ -110,27 +110,6 @@ ActiveRecord::Schema.define(version: 20190415054249) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "shipping_fees", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "sns_credentials", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.string   "uid"
-    t.string   "provider"
-    t.integer  "user_id"
-
-  create_table "shipping_froms", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["user_id"], name: "index_sns_credentials_on_user_id", using: :btree
-  end
-
-  create_table "shipping_methods", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "shipping_terms", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -142,6 +121,15 @@ ActiveRecord::Schema.define(version: 20190415054249) do
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
     t.index ["category_id"], name: "index_sizes_on_category_id", using: :btree
+  end
+
+  create_table "sns_credentials", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string   "uid"
+    t.string   "provider"
+    t.integer  "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_sns_credentials_on_user_id", using: :btree
   end
 
   create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -158,9 +146,9 @@ ActiveRecord::Schema.define(version: 20190415054249) do
   end
 
   add_foreign_key "addresses", "users"
-  add_foreign_key "profiles", "users"
-  add_foreign_key "sns_credentials", "users"
   add_foreign_key "images", "products"
   add_foreign_key "products", "categories"
+  add_foreign_key "profiles", "users"
   add_foreign_key "sizes", "categories"
+  add_foreign_key "sns_credentials", "users"
 end

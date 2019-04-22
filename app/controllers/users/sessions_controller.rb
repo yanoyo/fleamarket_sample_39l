@@ -20,18 +20,11 @@ class Users::SessionsController < Devise::SessionsController
   private
 
   def check_captcha
-    unless verify_recaptcha
-      self.resource = resource_class.new sign_in_params
-      resource.validate # Look for any other validation errors besides Recaptcha
-      set_minimum_password_length
-      respond_with resource
+    self.resource = resource_class.new sign_in_params
+    resource.validate
+    unless verify_recaptcha(model: resource)
+      respond_with_navigational(resource) {render :new}
     end
   end
-  # protected
-
-  # If you have extra params to permit, append them to the sanitizer.
-  # def configure_sign_in_params
-  #   devise_parameter_sanitizer.permit(:sign_in, keys: [:attribute])
-  # end
 
 end
