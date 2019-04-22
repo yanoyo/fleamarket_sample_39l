@@ -17,6 +17,23 @@ class ProductsController < ApplicationController
     end
   end
 
+  def edit
+  	@product = Product.find(params[:id])
+  	@product.images.build
+  	@categoryroot = Category.find(16).siblings
+  	category_id = @product.category_id
+  	@category_ids = Category.find_by(id: category_id).path_ids
+  end
+
+  def update
+  	@product = Product.find(params[:id])
+  	if @product.update(update_product_params)
+  	  redirect_to root_path(@product)
+  	else
+  	  redirect_to edit_product_path
+  	end
+  end
+
   def product_list
   end
 
@@ -25,7 +42,11 @@ class ProductsController < ApplicationController
 
   private
   def product_params
-    params.require(:product).permit(:name, :description, :category_id, :price, :condition, :shipping_fee, :shipping_method, :shipping_from, :shipping_term, images_attributes: {image: []})
+    params.require(:product).permit(:name, :description, :category_id, :price, :condition, :shipping_fee, :shipping_method, :shipping_from, :shipping_term, images_attributes: [:image])
+  end
+
+  def update_product_params
+  	params.require(:product).permit(:name, :description, :category_id, :price, :condition, :shipping_fee, :shipping_method, :shipping_from, :shipping_term, images_attributes: [:image, :_destroy, :id])
   end
 
 end
