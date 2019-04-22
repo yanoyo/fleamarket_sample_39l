@@ -16,5 +16,6 @@ module FleamarketSample39l
     end
     config.time_zone = 'Tokyo'
     config.i18n.default_locale = :ja
+    config.logger = Logger.new(STDOUT)
   end
 end

@@ -1,0 +1,64 @@
+- content_for :head do
+  %meta{name: "turbolinks-cache-control", content: "no-cache"}
+.wrapper
+  = render 'shared/header'
+  = render 'shared/bread-crumbs'
+  %main
+    .item-info
+      .item-info__container
+        .item-info__head
+          %p 正規品トリーバーチ バッグ トートバック
+        .item-info__content
+          .item-info__content-left
+            = render 'item-photos'
+          .item-info__content-right
+            = render 'item-table'
+        .item-info__priceInfo
+          .item-info__price
+            ¥ 6,800
+          .item-info__tax
+            (税別)
+          .item-info__shippingCost
+            送料込み
+        =link_to "購入画面に進む", '', class:'purchase-btn buy-btn'
+        .item-info__description
+          %p カラー ネイビー サイズ 縦34cm 横40cm マチ20cm  持ち手部分の一箇所に割れ目が入っています。チの部分も小さな割れ目があります。（4枚目の写真）その他中も外も特に汚れなどは無さそうです！形を小さくする事も出来るので使いやすいですよ(^^)
+        .item-info__buttons
+          .item-info__buttons-left
+            .item-info__buttons-favorite
+              = link_to 'hoge' do
+                = fa_icon 'heart', class: 'icon-like'
+                いいね!
+                99
+            .item-info__buttons-report
+              = link_to 'hoge' do
+                = fa_icon 'flag', class: 'icon-flag'
+                不適切な商品の報告
+          .item-info__buttons-right
+            = link_to 'https://www.mercari.com/jp/safe/description/' do
+              = fa_icon 'lock', class: 'icon-lock'
+              あんしん・あんぜんへの取り組み
+    .item-prevnext
+      .item-prevnext__prev
+        = link_to 'hoge', class: '' do
+          = fa_icon 'chevron-left', class: 'icon-arrow'
+          ダミー商品PREV
+      .item-prevnext__next
+        = link_to 'hoge', class: '' do
+          ダミー商品NEXT
+          = fa_icon 'chevron-right', class: 'icon-arrow'
+    .item-share
+      .item-share__textbox
+      %ul.item-share__snsbox
+        %li.icon-facebook
+          = link_to 'https://www.facebook.com/share.php?u=hoge', class:'', target:'blank' do
+            %i.fab.fa-facebook
+        %li.icon-twitter
+          = link_to 'https://twitter.com/intent/tweet?original_referer=hoge', class:'', target:'blank' do
+            %i.fab.fa-twitter
+        %li.icon-pinterest
+          = link_to 'http://twitter.com/share?count=horizontal&original_referer=hoge', class:'', target:'blank' do
+            %i.fab.fa-pinterest
+  = render 'items-prddetail'
+  = render 'shared/footer'
+
