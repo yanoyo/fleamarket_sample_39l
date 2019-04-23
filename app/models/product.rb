@@ -15,7 +15,7 @@ class Product < ApplicationRecord
     validates :price, numericality: { greater_than_or_equal_to: 300, less_than_or_equal_to: 9999999 }
   end
 
-  enum condition: { 
+  enum condition: {
   	unused: 1,
   	near_unused: 2,
   	no_noticeable_scratches_or_strains: 3,
@@ -24,22 +24,22 @@ class Product < ApplicationRecord
   	bad: 6
   }
 
-  enum shipping_fee: { 
+  enum shipping_fee: {
 	  postage_included: 1,
 	  cash_on_delivery: 2
   }
 
-  enum shipping_method: { 
+  enum shipping_method: {
     undecided: 1,
     rakuraku_mercari: 2
   }
 
-  enum shipping_from: { 
+  enum shipping_from: {
     hokkaido: 1,
     aomori: 2
   }
 
-  enum shipping_term: { 
+  enum shipping_term: {
   	one_to_two_days: 1,
   	two_to_three_days: 2,
   	four_to_seven_days: 3

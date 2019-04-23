@@ -10,7 +10,24 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20190410121712) do
+ActiveRecord::Schema.define(version: 20190415054249) do
+
+  create_table "addresses", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string   "relative_family_name",      null: false
+    t.string   "relative_first_name",       null: false
+    t.string   "relative_family_name_kana", null: false
+    t.string   "relative_first_name_kana",  null: false
+    t.string   "zip_code",                  null: false
+    t.integer  "prefecture_id",             null: false
+    t.string   "city",                      null: false
+    t.string   "block",                     null: false
+    t.string   "building"
+    t.string   "home_phone"
+    t.integer  "user_id"
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
+    t.index ["user_id"], name: "index_addresses_on_user_id", using: :btree
+  end
 
   create_table "brands", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name",       null: false
@@ -60,8 +77,22 @@ ActiveRecord::Schema.define(version: 20190410121712) do
   end
 
   create_table "profiles", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
+    t.string   "family_name",      null: false
+    t.string   "first_name",       null: false
+    t.string   "family_name_kana", null: false
+    t.string   "first_name_kana",  null: false
+    t.integer  "birth_year",       null: false
+    t.integer  "birth_month",      null: false
+    t.integer  "birth_day",        null: false
+    t.string   "mobile_phone",     null: false
+    t.string   "card_number"
+    t.string   "expiration_month"
+    t.string   "expiration_year"
+    t.string   "security_code"
+    t.integer  "user_id"
+    t.index ["user_id"], name: "index_profiles_on_user_id", using: :btree
   end
 
   create_table "shipping_fees", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -92,6 +123,15 @@ ActiveRecord::Schema.define(version: 20190410121712) do
     t.index ["category_id"], name: "index_sizes_on_category_id", using: :btree
   end
 
+  create_table "sns_credentials", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string   "uid"
+    t.string   "provider"
+    t.integer  "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_sns_credentials_on_user_id", using: :btree
+  end
+
   create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "email",                  default: "", null: false
     t.string   "encrypted_password",     default: "", null: false
@@ -105,7 +145,10 @@ ActiveRecord::Schema.define(version: 20190410121712) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end
 
+  add_foreign_key "addresses", "users"
   add_foreign_key "images", "products"
   add_foreign_key "products", "categories"
+  add_foreign_key "profiles", "users"
   add_foreign_key "sizes", "categories"
+  add_foreign_key "sns_credentials", "users"
 end
