@@ -6,7 +6,7 @@ class UsersController < ApplicationController
   end
 
   def show
-	end
+  end
 
   def update
     if current_user.update(user_params)
@@ -16,9 +16,9 @@ class UsersController < ApplicationController
     end
   end
 
-	def identification
-		@prefectures = Prefecture.all
-	end
+  def identification
+    @prefectures = Prefecture.all
+  end
 
   def edit
   end
@@ -29,8 +29,8 @@ class UsersController < ApplicationController
   def card
   end
 
-	def logout
-	end
+  def logout
+  end
 
   def new
     @user = User.new
@@ -47,10 +47,7 @@ class UsersController < ApplicationController
   end
 
   private
-
   def set_user
     @user = User.find(params[:id])
   end
-
-
 end
