@@ -15,7 +15,7 @@ Rails.application.routes.draw do
 
   get 'signup', to: 'users#signup'
 
-  resources :products, only: [:new, :create, :show] do
+  resources :products, only: [:new, :create, :show, :edit, :update] do
   	collection do
       get 'product_list'
   		get 'buy_confirm'

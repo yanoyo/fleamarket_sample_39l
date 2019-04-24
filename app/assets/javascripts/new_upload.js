@@ -42,7 +42,7 @@ $(function() {
       $(".product-single-container__upload-drop-box").width(620 - partsWidth);
     });
   }
-  
+
   function addFloatCss() {
     $(".product-single-container__upload-drop-box").css('float', 'right');
   }
