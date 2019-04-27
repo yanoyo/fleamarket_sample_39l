@@ -5,8 +5,6 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable,:omniauthable, omniauth_providers: [:facebook, :google_oauth2]
 
   has_many :products
-  has_many :buyer_deals, class_name: 'Deal', :foreign_key => 'buyer_id'
-  has_many :seller_deals, class_name: 'Deal', :foreign_key => 'seller_id'
 
   validates :nickname, presence: true, length: { maximum: 20 }
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
