@@ -3,7 +3,7 @@
     %tr
       %th 出品者
       %td
-        =link_to "わんわん", 'hoge'
+        = link_to "山田 太郎", 'hoge'
         .item-table__rating
           .item-table__rating-good
             %i.fas.fa-laugh
@@ -27,25 +27,25 @@
       %th ブランド
       %td
         =link_to "",class: '' do
-          %p.parent トリーバーチ
+          %p.parent Pachi-Mon
     %tr
       %th 商品の状態
       %td
-        %p やや傷や汚れあり
+        = product.condition
     %tr
       %th 配送料の負担
       %td
-        %p 送料込み(出品者負担)
+        = product.shipping_fee
     %tr
       %th 配送の方法
       %td
-        %p 未定
+        = product.shipping_method
     %tr
       %th 配送元地域
       %td
         =link_to do
-          %p 静岡県
+          = product.shipping_from
     %tr
       %th 発送日の目安
       %td
-        %p 2~3日で発送
+        = product.shipping_term
