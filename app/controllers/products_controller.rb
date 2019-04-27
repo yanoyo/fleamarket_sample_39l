@@ -18,6 +18,10 @@ class ProductsController < ApplicationController
       redirect_to new_product_path
     end
   end
+  
+  def show
+    @product = Product.find(params[:id])
+  end
 
   def edit
     @product.images.build
