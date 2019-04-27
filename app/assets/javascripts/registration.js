@@ -21,7 +21,7 @@ $(function() {
     var nickname = $('#user_nickname').val();
     var email = $('#user_email').val();
     var password = $('#user_password').val();
-    var password_confirmation = $('#user_confirmation_password').val();
+    var password_confirmation = $('#user_password_confirmation').val();
     var family_name = $('#user_profile_attributes_family_name').val();
     var first_name = $('#user_profile_attributes_first_name').val();
     var family_name_kana = $('#user_profile_attributes_family_name_kana').val();
