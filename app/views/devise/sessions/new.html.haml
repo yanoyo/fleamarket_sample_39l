@@ -8,12 +8,16 @@
         = link_to "新規会員登録", signup_path
 
       .login-panel__login-form-inner
-        %button#facebook-login.login-panel__btn-default.login-panel__btn-sns.login-panel__btn-sns__facebook
+        = link_to user_facebook_omniauth_authorize_path, class: "facebook-login signup-panel__btn-default signup-panel__btn-sns signup-panel__btn-sns__facebook" do
+          %button
           %i.icon-facebook
           Facebookでログイン
-        %button#google-login.login-panel__btn-default.login-panel__btn-sns.login-panel__btn-sns__google
+
+        = link_to user_google_oauth2_omniauth_authorize_path, class: "google-login signup-panel__btn-default signup-panel__btn-sns signup-panel__btn-sns__google" do
+          %button
           %i.icon-google-plus
           Googleでログイン
+
 
       .login-panel__login-form
         .login-panel__login-form-inner
@@ -22,9 +26,10 @@
               = f.email_field :email, placeholder: "メールアドレス", autofocus: true, class: "login-input-text login-panel__input-default"
             .login-panel__form-group
               = f.password_field :password, autocomplete: "current-password", placeholder: "パスワード", class: "login-input-text login-panel__input-default"
+            / .form-group
+            /   = recaptcha_tags site_key: '6Ldv_Z0UAAAAAOqBBPM4wAmr5647BOBnB-eWS3dF'
 
-              / =recaptcha_tags site_key: 後で実装
-              = f.submit "ログイン", class: "login-submit login-panel__btn-default login-panel__btn-red"
+            = f.submit "ログイン", class: "login-submit login-panel__btn-default login-panel__btn-red"
             = link_to "パスワードをお忘れの方",""
 
   = render partial: "shared/new-footer"

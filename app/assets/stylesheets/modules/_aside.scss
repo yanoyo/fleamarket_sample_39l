@@ -1,0 +1,64 @@
+.aside {
+  background-image: url(image_path("download_bg_pc.jpg"));
+  background-size: cover;
+  &__banner {
+    width: 750px;
+    display: flex;
+    align-items: center;
+    margin: 0 auto;
+
+    &__inner {
+      flex: 1;
+
+      &__icon {
+        display: flex;
+
+        img {
+          height: 68px;
+        }
+
+        &__app {
+          margin-left: 24px;
+          display: flex;
+          align-items: center;
+
+          a {
+            display: block;
+          }
+
+          img {
+            vertical-align: middle;
+            margin-right: 16px;
+            height: 40px;
+          }
+        }
+      }
+    }
+
+    &__image{
+      box-sizing: border-box;
+      height: 260px;
+    }
+  }
+}
+
+.aside__banner-complete {
+  width: 701px;
+  display: flex;
+  align-items: center;
+  margin: 0 auto;
+}
+
+#font-title__size {
+  text-align: left;
+  padding: 0 0 0 5px;
+  color: $white;
+  font-size: 22px;
+}
+
+#font-subtitle__size {
+  color: $white;
+  padding: 15px 0 10px 5px;
+  font-size: 30px;
+}
+

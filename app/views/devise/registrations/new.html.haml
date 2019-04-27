@@ -1,41 +1,260 @@
 .user-new-registration
   = render partial: "shared/new-header"
-  %main.single-main
-    %section.l-single-container
-      %h2.l-single-head
-        会員情報入力
 
-      .l-single-inner
-      = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
-        = devise_error_messages!
-        .l-single-content
-          .form-group
-            = f.label :nickname do
-              ニックネーム
-            %span.form-require
-              必須
-            = f.text_field :nickname, autoforcus: true, placeholder: "例) メルカリ太郎", class: "input-default"
-          .form-group
-            = f.label :email do
-              メールアドレス
-            %span.form-require
-              必須
-            = f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "PC・携帯どちらでも可", class: "input-default"
-          .form-group
-            = f.label :password do
-              パスワード
-            %span.form-require
-              必須
-            = f.password_field :password, autocomplete: "new-password", placeholder: "6文字以上", class: "input-default"
-          .form-group
-            = f.label :password do
-              パスワード(確認)
-            %span.form-require
-              必須
-            = f.password_field :password_confirmation, autocomplete: "new-password", placeholder: "6文字以上", class: "input-default"
-          .form-group
-            = f.submit "次へ進む", class: "form-group__btn-default form-group__btn-red "
+  .single-main
+  = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
+    .l-single-container
+      .single-main-container__head__main.hidden.active 会員情報入力
+      .single-main-container__head__phone.hidden 電話番号の確認
+      .single-main-container__head__address.hidden 発送元・お届け先住所入力
+      .single-main-container__head__pay.hidden 支払い方法
+
+      = f.fields_for :profile do |p|
+        .right-container__inner__main.hidden.active
+          .l-single-content
+            .form-group
+              = f.label :nickname do
+                ニックネーム
+              %span.form-require 必須
+              = f.text_field :nickname, class: "input-default", placeholder: "例) メルカリ太郎"
+              .self-form__nickname__nil.error.hidden ニックネームを入力してください
+
+            .form-group
+              = f.label :email do
+                メールアドレス
+              %span.form-require 必須
+              = f.email_field :email, class: "input-default", placeholder: "PC・携帯どちらでも可"
+              .self-form__email__nil.error.hidden メールアドレスを入力してください
+              .self-form__email__format.error.hidden フォーマットが不適切です
+
+            .form-group
+              = f.label :password do
+                パスワード
+              %span.form-require 必須
+              = f.password_field :password, class: "input-default", placeholder: "6文字以上"
+              .self-form__password__nil.error.hidden パスワードを入力してください
+              .self-form__password__format.error.hidden パスワードは6文字以上の英数字で入力してください
+
+            .form-group
+              = f.label :confirmation_password do
+                パスワード(確認)
+              %span.form-require 必須
+              = f.password_field :confirmation_password, class: "input-default", placeholder: "6文字以上"
+              .self-form__confirmation-password__nil.error.hidden パスワード(確認)を入力してください
+              .self-form__confirmation-password__match.error.hidden パスワードとパスワード (確認) が一致しません
+
+            .form-group
+              .l-chapter-sub-head
+                本人確認
+              .l-single-text
+                安心・安全にご利用いただくために、お客さまの本人情報の登録にご協力ください。他のお客さまに公開されることはありません。
+
+            .form-group
+              = p.label :family_name do
+                姓 (全角)
+              %span.form-require 必須
+              = p.text_field :family_name, class: "input-default", placeholder: "例) 山田"
+              .self-form__family-name__nil.error.hidden 姓を入力してください
+
+            .form-group
+              = p.label :first_name do
+                名 (全角)
+              %span.form-require 必須
+              = p.text_field :first_name, class: "input-default", placeholder: "例) 彩"
+              .self-form__first-name__nil.error.hidden 名を入力してください
+
+            .form-group
+              = p.label :family_name_kana do
+                姓カナ (全角)
+              %span.form-require 必須
+              = p.text_field :family_name_kana, class: "input-default", placeholder: "例) ヤマダ"
+              .self-form__family-name-kana__nil.error.hidden 姓(カナ)を入力してください
+              .self-form__family-name-kana__kana.error.hidden 姓(カナ)はカナ文字を入力してください
+
+            .form-group
+              = p.label :first_name_kana do
+                名カナ (全角)
+              %span.form-require 必須
+              = p.text_field :first_name_kana, class: "input-default", placeholder: "例) アヤ"
+              .self-form__first-name-kana__nil.error.hidden 名(カナ)を入力してください
+              .self-form__first-name-kana__kana.error.hidden 名(カナ)はカナ文字を入力してください
+
+            .form-group
+              = p.label :birthday do
+                生年月日
+              %span.form-require 必須
+              %br
+
+              .select-wrap
+                = p.select :birth_year, options_for_select(1900..2019), {prompt: "--"}, {autofocus: 'true', class: 'select-default'}
+                %i.fas.fa-angle-down.birthday
+                %span 年
+
+              .select-wrap
+                = p.select :birth_month, options_for_select(1..12), {prompt: "--"}, {autofocus: 'true', class: 'select-default'}
+                %i.fas.fa-angle-down.birthday
+                %span 月
+
+              .select-wrap
+                = p.select :birth_day, options_for_select(1..31), {prompt: "--"}, {autofocus: 'true', class: 'select-default'}
+                %i.fas.fa-angle-down.birthday
+                %span 日
+              .self-form__birthday__nil.error.hidden 生年月日を入力してください
+
+            .form-info-text
+              ※ 本人情報は正しく入力してください。会員登録後、修正するにはお時間を頂く場合があります。
+
+            .form-group
+              .l-single-text__text-center
+                「次へ進む」のボタンを押すことにより、
+                =link_to "利用規約", "https://www.mercari.com/jp/tos_list/"
+                に同意したものとみなします
+
+            .form-group
+              %input{type: "button",id: "font-first-submit", class: "form-group__btn-default form-group__btn-red custom__main", value: "次へ進む"}
+
+            .form-group.text-right
+              = link_to 'https://www.mercari.com/jp/help_center/article/423/', id: "font-color-blue", target: "_blank" do
+                本人確認書類の登録について
+                %i.fa.fa-chevron-right
+
+
+      = f.fields_for :profile do |p|
+        .right-container__inner__phone.hidden
+          .l-single-content
+            .form-group
+              = p.label :phone do
+                携帯電話の番号
+              = p.text_field :mobile_phone, class: "input-default", placeholder: "携帯電話の番号を入力"
+              .self-form__phone__nil.error.hidden 電話番号を入力してください
+              .self-form__phone__format.error.hidden 電話番号が正しくありません
+
+            .l-single-text
+              本人確認のため、携帯電話のSMS(ショートメッセージサービス)を利用して認証を行います。
+
+            .form-group
+              %input{type: "button", id: "font-second-submit", class: "form-group__btn-default form-group__btn-red custom__phone", value: "SMSを送信する"}
+            .l-single-text
+              ※電話番号は本人確認や不正利用防止のために利用します。他のユーザーに公開されることはありません。
+            .form-group.text-right
+              = link_to '/', id: "font-color-blue", target: "_blank" do
+                電話番号の確認が必要な理由
+                %i.fa.fa-chevron-right
+
+      = f.fields_for :address do |a|
+        .right-container__inner__address.hidden
+          .l-single-content
+            .form-group
+              = a.label :name_kanji do
+                お名前
+              %span.form-require 必須
+              = a.text_field :relative_family_name, class: "input-default", placeholder: "例) 山田"
+              .self-form__relative__family_name__nil.error.hidden 姓を入力してください
+              %br/
+              = a.text_field :relative_first_name, class: "input-default space-top", placeholder: "例) 彩"
+              .self-form__relative__first_name__nil.error.hidden 名を入力してください
+
+            .form-group
+              = a.label :name_kana do
+                お名前カナ
+              %span.form-require 必須
+              = a.text_field :relative_family_name_kana, class: "input-default", placeholder: "例) ヤマダ"
+              .self-form__relative__family_name_kana__nil.error.hidden 姓(カナ)を入力してください
+              .self-form__relative__family_name_kana__format.error.hidden 姓(カナ)はカナ文字を入力してください
+              %br/
+              = a.text_field :relative_first_name_kana, class: "input-default space-top", placeholder: "例) アヤ"
+              .self-form__relative__first_name_kana__nil.error.hidden 名(カナ)を入力してください
+              .self-form__relative__first_name_kana__format.error.hidden 名(カナ)はカナ文字を入力してください
+
+            .form-group
+              = a.label :zip_code do
+                郵便番号
+              %span.form-require 必須
+              = a.text_field :zip_code, class: "input-default", placeholder: "例) 123-4567"
+              .self-form__zip_code__nil.error.hidden 郵便番号を入力してください
+              .self-form__zip_code__format.error.hidden 郵便番号を数字(例：123-4567)で入力してください
+
+            .form-group
+              = a.label :prefecture do
+                都道府県
+                %span.form-require 必須
+              %br/
+              .select-wrap
+                = a.select :prefecture_id, Prefecture.all.map{|t| [t.name, t.id]}, {prompt: "--"}, class: "select-default__prefecture"
+                %i.fas.fa-angle-down.prefecture
+              .self-form__prefecture__nil.error.hidden 都道府県を選択してください
+
+            .form-group
+              = a.label :city do
+                市区町村
+              %span.form-require 必須
+              = a.text_field :city, class: "input-default", placeholder: "例) 港区"
+              .self-form__city__nil.error.hidden 市区町村を入力してください
+
+            .form-group
+              = a.label :block do
+                番地
+              %span.form-require 必須
+              = a.text_field :block, class: "input-default", placeholder: "例) 六本木6-10-1"
+              .self-form__block__nil.error.hidden 番地を入力してください
+
+            .form-group
+              = a.label :building do
+                建物名
+              %span#form-arbitrary 任意
+              = a.text_field :building, class: "input-default", placeholder: "例) 六本木ヒルズ森タワー"
+
+            .form-group
+              = a.label :home_phone do
+                電話
+              %span#form-arbitrary 任意
+              = a.text_field :home_phone, class: "input-default", placeholder: "例) 09012345678"
+              .self-form__home_phone__format.error.hidden 電話番号が正しくありません
+
+            .form-group
+              %input{type: "button", id: "font-third-submit",class: "form-group__btn-default form-group__btn-red custom__address", value: "次へ進む"}
+
+      = f.fields_for :profile do |p|
+        .right-container__inner__pay.hidden
+          .l-single-content
+            .form-group
+              = p.label :credit do
+                カード番号
+              %span#form-arbitrary 任意
+              = p.text_field :card_number, class: "input-default", placeholder: "半角数字のみ"
+
+            .form-group
+              = p.label :deadline do
+                有効期限
+              %span#form-arbitrary 任意
+              %br/
+              .select-wrap
+                = p.select :expiration_month, options_for_select(1..12), {prompt: "--"}, {autofocus: 'true', class: 'select-default'}
+                %i.fas.fa-angle-down
+                %span 月
+
+              .select-wrap
+                = p.select :expiration_year, options_for_select(2019..2030), {prompt: "--"}, {autofocus: 'true', class: 'select-default'}
+                %i.fas.fa-angle-down
+                %span 年
+
+
+            .form-group
+              = p.label :security_code do
+                セキュリティーコード
+              %span#form-arbitrary 任意
+              = p.text_field :security_code, class: "input-default", placeholder: "カード背面4桁もしくは3桁の番号"
+
+            .form-group.text-right
+              = link_to 'https://www.mercari.com/jp/help_center/article/423/', id: "font-color-blue", target: "_blank" do
+                %i.fas.fa-question-circle
+                カード裏面の番号とは？
+
+            / .form-group
+            /   = recaptcha_tags site_key: '6Ldv_Z0UAAAAAOqBBPM4wAmr5647BOBnB-eWS3dF'
+
+            .form-group
+              = f.submit "次へ進む", class: "form-group__btn-default form-group__btn-red"
 
   = render partial: "shared/new-footer"
-
-
+  %script{src: "https://apis.google.com/js/platform.js?onload=renderButton", async: "defer"}

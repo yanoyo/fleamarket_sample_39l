@@ -71,7 +71,13 @@ gem 'haml-rails'
 gem 'erb2haml'
 gem "font-awesome-rails"
 gem 'active_hash', '1.4.1'
+gem 'omniauth'
+gem 'omniauth-google-oauth2'
+gem 'omniauth-facebook'
+gem 'recaptcha', require: "recaptcha/rails"
 gem 'carrierwave', '~> 1.0'
 gem 'mini_magick'
 gem 'ancestry'
 gem 'enum_help'
+gem 'fog-aws'
+

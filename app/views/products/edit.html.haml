@@ -6,7 +6,7 @@
         %div
           .sell-container-inner
             %h2.product-single-container__head 商品の情報を入力
-            = form_for @product, html: {class: "product-single-container__form"} do |f|
+            = form_for @product, url:product_path, html: {class: "product-single-container__form"} do |f|
               .product-single-container__upload-box
                 %h3.product-single-container__upload-head
                   出品画像
@@ -16,12 +16,20 @@
                   .product-single-container__upload-items-container
                     .product-single-container__upload-items.have-item-0
                       %ul.preview
+                        - @product.images.each_with_index do |images, index|
+                          - if images.image.present?
+                            %li{class: "product-single-container__upload-item product-single-container__upload-item#{index}"}
+                              %figure.product-single-container__upload-item-figure
+                                = image_tag images.image.to_s, {alt: "", class: "img#{index}"}
+                              .product-single-container__upload-button
+                                = link_to "編集", edit_product_path, id: "edit", class: "edit#{index}"
+                                = link_to "削除", edit_product_path, id: "delete", class: "delete#{index}"
                   = f.fields_for :images do |i|
-                    = i.file_field :image, type: :file, class: 'file'
-                    .product-single-container__upload-drop-box.have-item#field
+                    .product-single-container__upload-drop-box.product-single-container__l-right.have-item#field
                       %pre.product-single-container__visible-pc
                         ドラッグアンドドロップ
                         またはクリックしてファイルをアップロード
+                      = i.file_field :image, type: :file, class: 'file'
               .product-single-container__content.product-single-container__clearfix
                 .product-single-container__form-group
                   = f.label :name do
@@ -30,7 +38,7 @@
                   %div
                     = f.text_field :name, class: "product-single-container__input-default", placeholder: "商品名（必須 40文字まで)"
                 .product-single-container__form-group
-                  = f.label :detail do
+                  = f.label :description do
                     商品の説明
                     %span.product-single-container__form-require 必須
                   = f.text_area :description, class: "product-single-container__textarea-default", placeholder: "商品の説明（必須 1,000文字以内）（色、素材、重さ、定価、注意点など）例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。", rows: "5"
@@ -38,7 +46,7 @@
                 %h3.product-single-container__sell-sub-head 商品の詳細
                 .product-single-container__form-box
                   .product-single-container__form-group
-                    %label
+                    = f.label :category_id do
                       カテゴリー
                       %span.product-single-container__form-require 必須
                     .product-single-container__select-wrap
@@ -46,11 +54,16 @@
                       %i.icon-arrow-bottom
                     - @categoryroot.each do |root|
                       .product-single-container__select-wrap.select-box-list
-                        - cache root.children do
+                        - if @category_ids[0] == root.id
+                          = collection_select :product, :category_id, root.children, :id, :name,{include_blank: "---"}, {class: "product-single-container__select-default active",child_id: "#{root.id}"}
+                        - else
                           = collection_select :product, :category_id, root.children, :id, :name,{include_blank: "---"}, {class: "product-single-container__select-default select-box-child",child_id: "#{root.id}"}
-                          - root.children.each do |son|
-                            .product-single-container__select-wrap.select-box-list-son
-                              = f.collection_select :category_id, son.children, :id, :name, {include_blank: "---"}, {class: "product-single-container__select-default select-box-son", son_id: "#{son.id}"}
+                      - root.children.each do |son|
+                        .product-single-container__select-wrap.select-box-list-son
+                          - if @category_ids[1] == son.id
+                            = f.collection_select :category_id, son.children, :id, :name, {include_blank: "---"}, {class: "product-single-container__select-default select-box-son active", son_id: "#{son.id}"}
+                          - else
+                            = f.collection_select :category_id, son.children, :id, :name, {include_blank: "---"}, {class: "product-single-container__select-default select-box-son", son_id: "#{son.id}"}
                     = f.hidden_field :category_id, {class: "category"}
                   .product-single-container__form-group
                     = f.label :condition do
@@ -115,17 +128,18 @@
               .product-single-container__content.product-single-container__btn-box
                 %div
                   %p
-                    =link_to "禁止されている出品", "", { target: "_blank" }
+                    =link_to "禁止されている出品", "", target: "_blank"
                     、
-                    =link_to "行為", "", { target: "_blank" }
+                    =link_to "行為", "", target: "_blank"
                     を必ずご確認ください。
                   %p
                     またブランド品でシリアルナンバー等がある場合はご記載ください。
-                    =link_to "偽ブランドの販売", "", { target: "_blank" }
+                    =link_to "偽ブランドの販売", "", target: "_blank"
                   %p
                     また、出品をもちまして
-                    =link_to "加盟店規約", "", { target: "_blank" }
-                = f.submit "出品する", class: "product-single-container__btn-default product-single-container__btn-box__btn-red"
-                =link_to "もどる", "", { :class => "product-single-container__btn-default product-single-container__btn-box__btn-gray" }
+                    =link_to "加盟店規約", "", target: "_blank"
+                    に同意したことになります。
+                = f.submit "変更する", class: "product-single-container__btn-default product-single-container__btn-box__btn-red"
+                =link_to "もどる", "", class: "product-single-container__btn-default product-single-container__btn-box__btn-gray"
             .overlay
   = render partial: "shared/new-footer"

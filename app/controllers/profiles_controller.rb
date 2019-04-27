@@ -1,5 +1,11 @@
 class ProfilesController < ApplicationController
-	def edit
-		@prefectures = Prefecture.all
-	end
+  before_action :authenticate_user!, only: [:new, :create, :index]
+
+  def index
+  end
+
+  def edit
+    @prefectures = Prefecture.all
+  end
+
 end

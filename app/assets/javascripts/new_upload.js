@@ -1,9 +1,5 @@
 $(function() {
 
-  $("#field").on("click", function() {
-    $("input[type=file]").click();
-  });
-  
   var fileChoiceArea = [];
 
   $(".file").each(function(i){
@@ -19,7 +15,7 @@ $(function() {
 
   $(".preview").each(function(index){
       var count = $("li").find("img").length;
-      var partsWidth = count * 160;
+      var partsWidth = count * 131;
       $(".product-single-container__upload-drop-box").width(620 - partsWidth);
   });
 
@@ -46,7 +42,7 @@ $(function() {
       $(".product-single-container__upload-drop-box").width(620 - partsWidth);
     });
   }
-  
+
   function addFloatCss() {
     $(".product-single-container__upload-drop-box").css('float', 'right');
   }
@@ -55,7 +51,7 @@ $(function() {
     return $(".product-single-container__upload-item").length;
   }
 
-  $("form").on("change", 'input[type="file"]', function(){
+  $(".product-single-container__dropbox-container").on("change", "input[type=file]", function(){
     var fileInput = $(this).attr("id");
     var i = 0;
     $(".file").each(function(){
