@@ -11,17 +11,17 @@
                 %h3.product-single-container__upload-head
                   出品画像
                   %span.product-single-container__form-require 必須
-                %p 最大4枚までアップロードできます
+                %p 最大10枚までアップロードできます
                 .product-single-container__dropbox-container.product-single-container__clearfix
                   .product-single-container__upload-items-container
                     .product-single-container__upload-items.have-item-0
                       %ul.preview
                   = f.fields_for :images do |i|
-                    = i.file_field :image, type: :file, class: 'file'
                     .product-single-container__upload-drop-box.have-item#field
                       %pre.product-single-container__visible-pc
                         ドラッグアンドドロップ
                         またはクリックしてファイルをアップロード
+                      = i.file_field :image, type: :file, class: 'file'
               .product-single-container__content.product-single-container__clearfix
                 .product-single-container__form-group
                   = f.label :name do

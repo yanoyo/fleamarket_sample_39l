@@ -6,11 +6,12 @@
     %section.product-single-container__buy-content.product-single-container__buy-item
       .product-single-container__buy-content-inner
         %h3
-          =image_tag "https://static.mercdn.net/thumb/photos/m16477614281_1.jpg?1552808604", alt: "シャツ"
-        %p.product-single-container__buy-item-name men'sチェックシャツ
-        %form.buy-form{action: "", method: "POST"}
+          = image_tag "#{@product.images[0].image.to_s}", alt: "シャツ"
+        %p.product-single-container__buy-item-name
+          = @product.name
+        = form_for @product, url: "/products/pay/#{@product.id}", html: {method: "post"} do |f|
           %p.product-single-container__buy-price-ja
-            ¥ 600
+            = "¥ #{@product.price}"
             %span.product-single-container__item-shipping-fee.f14 送料込み
           %ul.product-single-container__buy-accordion
             %li.product-single-container__accordion-parent
@@ -20,8 +21,11 @@
             %li.product-single-container__buy-price-row
               .product-single-container__buy-price-cell 支払い金額
               .product-single-container__buy-price-cell
-                %span ¥ 600
-          %button.product-single-container__btn-default.product-single-container__btn-red{type: "submit"} 購入する
+                %span{data: "@product.price"} 
+                  = "¥ #{@product.price}"
+          = f.submit "購入する", {class: "product-single-container__btn-default product-single-container__btn-red"}        
+          / = form_tag("/products/pay/#{@product.id}", method: :post) do
+          /   %script.payjp-button{src: "https://checkout.pay.jp", type: "text/javascript" ,"data-text": "購入する" ,"data-key": "#{@payjppy}"}
     %section.product-single-container__buy-content.product-single-container__buy-user-info
       .product-single-container__buy-content-inner
         %h3 配送先
