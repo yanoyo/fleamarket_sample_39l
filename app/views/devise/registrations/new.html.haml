@@ -36,10 +36,10 @@
               .self-form__password__format.error.hidden パスワードは6文字以上の英数字で入力してください
 
             .form-group
-              = f.label :confirmation_password do
+              = f.label :password_confirmation do
                 パスワード(確認)
               %span.form-require 必須
-              = f.password_field :confirmation_password, class: "input-default", placeholder: "6文字以上"
+              = f.password_field :password_confirmation, class: "input-default", placeholder: "6文字以上"
               .self-form__confirmation-password__nil.error.hidden パスワード(確認)を入力してください
               .self-form__confirmation-password__match.error.hidden パスワードとパスワード (確認) が一致しません
 

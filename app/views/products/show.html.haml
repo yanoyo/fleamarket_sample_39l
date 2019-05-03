@@ -7,22 +7,25 @@
     .item-info
       .item-info__container
         .item-info__head
-          %p 正規品トリーバーチ バッグ トートバック
+          = @product.name
         .item-info__content
           .item-info__content-left
-            = render 'item-photos'
+            = render 'item-photos', product: @product
           .item-info__content-right
-            = render 'item-table'
+            = render 'item-table', product: @product
         .item-info__priceInfo
           .item-info__price
-            ¥ 6,800
+            ¥ #{@product.price}
           .item-info__tax
             (税別)
           .item-info__shippingCost
             送料込み
-        =link_to "購入画面に進む", '', class:'purchase-btn buy-btn'
+        - if user_signed_in?
+          =link_to "購入画面に進む", buy_confirm_products_path, class:'purchase-btn buy-btn'
+        - else
+          =link_to "購入画面に進む", new_user_session_path, class:'purchase-btn buy-btn'
         .item-info__description
-          %p カラー ネイビー サイズ 縦34cm 横40cm マチ20cm  持ち手部分の一箇所に割れ目が入っています。チの部分も小さな割れ目があります。（4枚目の写真）その他中も外も特に汚れなどは無さそうです！形を小さくする事も出来るので使いやすいですよ(^^)
+          = @product.description
         .item-info__buttons
           .item-info__buttons-left
             .item-info__buttons-favorite
