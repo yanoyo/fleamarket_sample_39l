@@ -41,12 +41,12 @@ Rails.application.configure do
   # This option may cause significant delays in view rendering with a large
   # number of complex assets.
   # Expands the lines which load the assets
-  config.assets.debug = true
+  config.assets.debug = false
 
   # Do not compress assets
-  # config.assets.compress = true
+  config.assets.compress = true
 
-  # config.assets.digest = true
+  config.assets.digest = true
 
   # Suppress logger output for asset requests.
   config.assets.quiet = true

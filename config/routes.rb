@@ -10,7 +10,6 @@ Rails.application.routes.draw do
   registrations: 'users/registrations'
   }
 
-
   root 'products#index'
 
   get 'signup', to: 'users#signup'
@@ -19,6 +18,7 @@ Rails.application.routes.draw do
   	collection do
       get 'product_list'
   		get 'buy_confirm'
+      post 'pay/:id', to: 'products#pay', as: 'pay'
   	end
   end
 

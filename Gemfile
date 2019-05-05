@@ -80,4 +80,5 @@ gem 'mini_magick'
 gem 'ancestry'
 gem 'enum_help'
 gem 'fog-aws'
-
+gem 'payjp'
+gem 'dotenv-rails'

@@ -1,5 +1,7 @@
 class ProductsController < ApplicationController
-  before_action :set_product, except: [:index, :new, :create]
+  before_action :set_product, except: [:index, :new, :create, :buy_confirm]
+
+  require 'payjp'
 
   def index
   end
@@ -7,7 +9,7 @@ class ProductsController < ApplicationController
   def new
     @product = Product.new
     @product.images.build
-    @categoryroot = Category.find(1).siblings
+    @categoryroot = Category.find(2).siblings
   end
 
   def create
@@ -25,7 +27,7 @@ class ProductsController < ApplicationController
 
   def edit
     @product.images.build
-    @categoryroot = Category.find(1).siblings
+    @categoryroot = Category.find(2).siblings
     @category_ids = Category.find(@product.category_id).path_ids
   end
 
@@ -41,6 +43,23 @@ class ProductsController < ApplicationController
   end
 
   def buy_confirm
+    @product = Product.find(1)
+    card = Profile.where(user_id: current_user.id).first
+    Payjp::api_key = ENV['PAYJP_SECRET_KEY']
+    customer = Payjp::Customer.retrieve(card.customer_id)
+    @default_card_information = customer.cards.retrieve(card.card_id)
+  end
+
+  def pay
+    card = Profile.where(user_id: current_user.id).first
+    Payjp::api_key = ENV['PAYJP_SECRET_KEY']
+    charge = Payjp::Charge.create(
+      amount: @product.price,
+      customer: card.customer_id,
+      currency: 'jpy',
+    )
+    @product[:status] = 1
+    @product.save
   end
 
   private

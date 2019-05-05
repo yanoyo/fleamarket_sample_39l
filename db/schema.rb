@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20190415054249) do
+ActiveRecord::Schema.define(version: 20190427014247) do
 
   create_table "addresses", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "relative_family_name",      null: false
@@ -73,6 +73,7 @@ ActiveRecord::Schema.define(version: 20190415054249) do
     t.integer  "shipping_method",               default: 0, null: false
     t.integer  "shipping_term",                 default: 0, null: false
     t.integer  "shipping_fee",                  default: 0, null: false
+    t.integer  "status",                        default: 0, null: false
     t.index ["category_id"], name: "index_products_on_category_id", using: :btree
   end
 
@@ -87,11 +88,13 @@ ActiveRecord::Schema.define(version: 20190415054249) do
     t.integer  "birth_month",      null: false
     t.integer  "birth_day",        null: false
     t.string   "mobile_phone",     null: false
-    t.string   "card_number"
-    t.string   "expiration_month"
-    t.string   "expiration_year"
-    t.string   "security_code"
     t.integer  "user_id"
+    t.string   "customer_id",      null: false
+    t.string   "card_id",          null: false
+    t.string   "security_code"
+    t.string   "expiration_year"
+    t.string   "expiration_month"
+    t.string   "card_number"
     t.index ["user_id"], name: "index_profiles_on_user_id", using: :btree
   end
 
