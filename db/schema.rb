@@ -88,11 +88,13 @@ ActiveRecord::Schema.define(version: 20190427014247) do
     t.integer  "birth_month",      null: false
     t.integer  "birth_day",        null: false
     t.string   "mobile_phone",     null: false
-    t.string   "card_number"
-    t.string   "expiration_month"
-    t.string   "expiration_year"
-    t.string   "security_code"
     t.integer  "user_id"
+    t.string   "customer_id",      null: false
+    t.string   "card_id",          null: false
+    t.string   "security_code"
+    t.string   "expiration_year"
+    t.string   "expiration_month"
+    t.string   "card_number"
     t.index ["user_id"], name: "index_profiles_on_user_id", using: :btree
   end
 

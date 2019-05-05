@@ -9,7 +9,7 @@ class ProductsController < ApplicationController
   def new
     @product = Product.new
     @product.images.build
-    @categoryroot = Category.find(16).siblings
+    @categoryroot = Category.find(2).siblings
   end
 
   def create
@@ -27,7 +27,7 @@ class ProductsController < ApplicationController
 
   def edit
     @product.images.build
-    @categoryroot = Category.find(16).siblings
+    @categoryroot = Category.find(2).siblings
     @category_ids = Category.find(@product.category_id).path_ids
   end
 
@@ -43,23 +43,23 @@ class ProductsController < ApplicationController
   end
 
   def buy_confirm
-    @product = Product.find(111)
-    @payjppy = ENV['PAYJP_PUBLIC_KEY']
+    @product = Product.find(1)
+    card = Profile.where(user_id: current_user.id).first
+    Payjp::api_key = ENV['PAYJP_SECRET_KEY']
+    customer = Payjp::Customer.retrieve(card.customer_id)
+    @default_card_information = customer.cards.retrieve(card.card_id)
   end
 
   def pay
+    card = Profile.where(user_id: current_user.id).first
     Payjp::api_key = ENV['PAYJP_SECRET_KEY']
     charge = Payjp::Charge.create(
-      :amount => @product.price,
-      :card => params['payjp-token'],
-      :currency => 'jpy',
+      amount: @product.price,
+      customer: card.customer_id,
+      currency: 'jpy',
     )
     @product[:status] = 1
-    if @product.save
-      redirect_to root_path(@product)
-    else
-      redirect_to buy_confirm_path
-    end
+    @product.save
   end
 
   private

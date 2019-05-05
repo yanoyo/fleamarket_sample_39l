@@ -2,6 +2,8 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # prepend_before_action :check_captcha, only: [:create]
   before_action :configure_sign_up_params, only: [:create]
 
+  require "payjp"
+
   def signup
   end
 
@@ -37,8 +39,13 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   def create
     @user = User.new(sign_up_params)
+    Payjp.api_key = ENV["PAYJP_SECRET_KEY"]
+    customer = Payjp::Customer.create(
+      card: params['payjp-token']
+    )
+    @user.profile[:customer_id] = customer.id
+    @user.profile[:card_id] = customer.default_card
     if @user.save
-
     else
       redirect_to new_user_registration_path
     end
@@ -63,7 +70,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
   def configure_sign_up_params
     devise_parameter_sanitizer.permit(:sign_up) do |params|
       params.permit(:nickname, :email, :password, :password_confirmation,
-                    profile_attributes: [:family_name, :first_name, :family_name_kana, :first_name_kana, :birth_year, :birth_month, :birth_day, :mobile_phone, :card_number, :expiration_month, :expiration_year, :security_code, :user_id],
+                    profile_attributes: [:family_name, :first_name, :family_name_kana, :first_name_kana, :birth_year, :birth_month, :birth_day, :mobile_phone, :card_number, :expiration_month, :expiration_year, :security_code, :user_id, customer_id: "", card_id: ""],
                     address_attributes: [:zip_code,:prefecture_id, :city, :block, :building, :relative_family_name, :relative_first_name, :relative_family_name_kana, :relative_first_name_kana, :home_phone, :user_id]
                     )
     end

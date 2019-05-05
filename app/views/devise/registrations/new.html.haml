@@ -2,7 +2,7 @@
   = render partial: "shared/new-header"
 
   .single-main
-  = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
+  = form_for(resource, as: resource_name, url: registration_path(resource_name), html: {name: "inputForm"}) do |f|
     .l-single-container
       .single-main-container__head__main.hidden.active 会員情報入力
       .single-main-container__head__phone.hidden 電話番号の確認
@@ -221,7 +221,7 @@
               = p.label :credit do
                 カード番号
               %span#form-arbitrary 任意
-              = p.text_field :card_number, class: "input-default", placeholder: "半角数字のみ"
+              = p.text_field :card_number, class: "input-default", id: "card_number", placeholder: "半角数字のみ"
 
             .form-group
               = p.label :deadline do
@@ -229,12 +229,12 @@
               %span#form-arbitrary 任意
               %br/
               .select-wrap
-                = p.select :expiration_month, options_for_select(1..12), {prompt: "--"}, {autofocus: 'true', class: 'select-default'}
+                = p.select :expiration_month, options_for_select(1..12), {prompt: "--"}, {autofocus: 'true', class: 'select-default', id: 'exp_month'}
                 %i.fas.fa-angle-down
                 %span 月
 
               .select-wrap
-                = p.select :expiration_year, options_for_select(2019..2030), {prompt: "--"}, {autofocus: 'true', class: 'select-default'}
+                = p.select :expiration_year, options_for_select(2019..2030), {prompt: "--"}, {autofocus: 'true', class: 'select-default', id: 'exp_year'}
                 %i.fas.fa-angle-down
                 %span 年
 
@@ -243,7 +243,7 @@
               = p.label :security_code do
                 セキュリティーコード
               %span#form-arbitrary 任意
-              = p.text_field :security_code, class: "input-default", placeholder: "カード背面4桁もしくは3桁の番号"
+              = p.text_field :security_code, class: "input-default", id: "cvc", placeholder: "カード背面4桁もしくは3桁の番号"
 
             .form-group.text-right
               = link_to 'https://www.mercari.com/jp/help_center/article/423/', id: "font-color-blue", target: "_blank" do
@@ -254,7 +254,8 @@
             /   = recaptcha_tags site_key: '6Ldv_Z0UAAAAAOqBBPM4wAmr5647BOBnB-eWS3dF'
 
             .form-group
-              = f.submit "次へ進む", class: "form-group__btn-default form-group__btn-red"
+              #card_token
+              = f.submit "次へ進む", class: "form-group__btn-default form-group__btn-red", id: "token_submit"
 
   = render partial: "shared/new-footer"
   %script{src: "https://apis.google.com/js/platform.js?onload=renderButton", async: "defer"}
