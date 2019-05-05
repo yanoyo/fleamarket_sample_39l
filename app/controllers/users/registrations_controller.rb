@@ -70,8 +70,8 @@ class Users::RegistrationsController < Devise::RegistrationsController
   def configure_sign_up_params
     devise_parameter_sanitizer.permit(:sign_up) do |params|
       params.permit(:nickname, :email, :password, :password_confirmation,
-                    profile_attributes: [:family_name, :first_name, :family_name_kana, :first_name_kana, :birth_year, :birth_month, :birth_day, :mobile_phone, :card_number, :expiration_month, :expiration_year, :security_code, :user_id],
-                    address_attributes: [:zip_code,:prefecture_id, :city, :block, :building, :user_id, :relative_family_name, :relative_first_name, :relative_family_name_kana, :relative_first_name_kana, :home_phone, :user_id]
+                    profile_attributes: [:family_name, :first_name, :family_name_kana, :first_name_kana, :birth_year, :birth_month, :birth_day, :mobile_phone, :card_number, :expiration_month, :expiration_year, :security_code, :user_id, customer_id: "", card_id: ""],
+                    address_attributes: [:zip_code,:prefecture_id, :city, :block, :building, :relative_family_name, :relative_first_name, :relative_family_name_kana, :relative_first_name_kana, :home_phone, :user_id]
                     )
     end
   end
