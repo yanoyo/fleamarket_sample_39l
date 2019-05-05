@@ -1,5 +1,5 @@
 class Users::RegistrationsController < Devise::RegistrationsController
-  # prepend_before_action :check_captcha, only: [:create]
+  prepend_before_action :check_captcha, only: [:create]
   before_action :configure_sign_up_params, only: [:create]
 
   require "payjp"
@@ -70,8 +70,8 @@ class Users::RegistrationsController < Devise::RegistrationsController
   def configure_sign_up_params
     devise_parameter_sanitizer.permit(:sign_up) do |params|
       params.permit(:nickname, :email, :password, :password_confirmation,
-                    profile_attributes: [:family_name, :first_name, :family_name_kana, :first_name_kana, :birth_year, :birth_month, :birth_day, :mobile_phone, :card_number, :expiration_month, :expiration_year, :security_code, :user_id, customer_id: "", card_id: ""],
-                    address_attributes: [:zip_code,:prefecture_id, :city, :block, :building, :relative_family_name, :relative_first_name, :relative_family_name_kana, :relative_first_name_kana, :home_phone, :user_id]
+                    profile_attributes: [:family_name, :first_name, :family_name_kana, :first_name_kana, :birth_year, :birth_month, :birth_day, :mobile_phone, :card_number, :expiration_month, :expiration_year, :security_code, :user_id],
+                    address_attributes: [:zip_code,:prefecture_id, :city, :block, :building, :user_id, :relative_family_name, :relative_first_name, :relative_family_name_kana, :relative_first_name_kana, :home_phone, :user_id]
                     )
     end
   end
@@ -80,11 +80,11 @@ class Users::RegistrationsController < Devise::RegistrationsController
     params.require(:address).permit(:zip_code, :prefecture_id, :city, :block, :building, :relative_family_name, :relative_first_name, :relative_family_name_kana, :relative_first_name_kana, :home_phone)
   end
 
-  # def check_captcha
-  #   self.resource = resource_class.new sign_up_params
-  #   resource.validate
-  #   unless verify_recaptcha(model: resource)
-  #     respond_with_navigational(resource) { render :new }
-  #   end
-  # end
+  def check_captcha
+    self.resource = resource_class.new sign_up_params
+    resource.validate
+    unless verify_recaptcha(model: resource)
+      respond_with_navigational(resource) { render :new }
+    end
+  end
 end
