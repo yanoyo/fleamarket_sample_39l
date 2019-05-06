@@ -14,10 +14,10 @@ Rails.application.routes.draw do
 
   get 'signup', to: 'users#signup'
 
-  resources :products, only: [:new, :create, :show, :edit, :update] do
+  resources :products, only: [:new, :create, :show, :edit, :update, :destroy] do
   	collection do
       get 'product_list'
-  		get 'buy_confirm'
+  		get 'buy_confirm/:id', to: 'products#buy_confirm', as: 'buy_confirm'
       post 'pay/:id', to: 'products#pay', as: 'pay'
   	end
   end
