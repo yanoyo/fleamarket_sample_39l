@@ -1,5 +1,5 @@
 class ProductsController < ApplicationController
-  before_action :set_product, except: [:index, :new, :create, :buy_confirm]
+  before_action :set_product, except: [:index, :new, :create]
 
   require 'payjp'
 
@@ -43,7 +43,6 @@ class ProductsController < ApplicationController
   end
 
   def buy_confirm
-    @product = Product.find(1)
     card = Profile.where(user_id: current_user.id).first
     Payjp::api_key = ENV['PAYJP_SECRET_KEY']
     customer = Payjp::Customer.retrieve(card.customer_id)
@@ -62,13 +61,21 @@ class ProductsController < ApplicationController
     @product.save
   end
 
+  def destroy
+    product = Product.find((params[:id]))
+    if product.user_id == current_user.id
+      product.destroy
+    end
+    redirect_to root_path
+  end
+
   private
   def set_product
     @product = Product.find(params[:id])
   end
 
   def product_params
-    params.require(:product).permit(:name, :description, :category_id, :price, :condition, :shipping_fee, :shipping_method, :shipping_from, :shipping_term, images_attributes: [:image])
+    params.require(:product).permit(:name, :description, :category_id, :price, :condition, :shipping_fee, :shipping_method, :shipping_from, :shipping_term, images_attributes: [:image]).merge(user_id: current_user.id)
   end
 
   def update_product_params

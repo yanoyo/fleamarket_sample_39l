@@ -41,6 +41,14 @@
             = link_to 'https://www.mercari.com/jp/safe/description/' do
               = fa_icon 'lock', class: 'icon-lock'
               あんしん・あんぜんへの取り組み
+        - if current_user.id == @product.user_id
+          =link_to "商品の編集", edit_product_path(@product), class:'purchase-btn buy-btn'
+          .or or
+          - unless @product.status == 1
+            = link_to "出品を停止する", "#", class: "product-single-container__btn-default btn-box__btn-gray"
+          - else
+            = link_to "出品を再開する", "#", class: "product-single-container__btn-default btn-box__btn-gray"
+          = link_to "商品を削除する", "/products/#{@product.id}", method: :delete, class: "product-single-container__btn-default btn-box__btn-gray"
     .item-prevnext
       .item-prevnext__prev
         = link_to 'hoge', class: '' do
