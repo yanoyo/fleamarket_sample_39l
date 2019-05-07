@@ -9,7 +9,7 @@ class ProductsController < ApplicationController
   def new
     @product = Product.new
     @product.images.build
-    @categoryroot = Category.find(2).siblings
+    @categoryroot = Category.find(1).siblings
   end
 
   def create
@@ -27,7 +27,7 @@ class ProductsController < ApplicationController
 
   def edit
     @product.images.build
-    @categoryroot = Category.find(2).siblings
+    @categoryroot = Category.find(1).siblings
     @category_ids = Category.find(@product.category_id).path_ids
   end
 
