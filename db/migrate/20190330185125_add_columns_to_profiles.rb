@@ -13,7 +13,5 @@ class AddColumnsToProfiles < ActiveRecord::Migration[5.0]
     add_column :profiles, :expiration_year,  :string,  null: true
     add_column :profiles, :security_code,    :string,  null: true
     add_reference :profiles, :user,          foreign_key: :true
-    add_column :profiles, :customer_id, :string, null: false
-    add_column :profiles, :card_id, :string, null: false
   end
 end
